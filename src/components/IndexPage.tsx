@@ -5,10 +5,15 @@ import {DogWithZoom} from "./DogZoomWithText";
 
 export const IndexPage: FC = () => {
     return <div className="grid place-items-center h-screen">
-        <div className="flex">
-            <DogWithZoom image_src={MovementDog} label="pokret"  url="movement"/>
-            <div>ona linija</div>
-            <DogWithZoom image_src={GameLogo} label="litero-igra" url="igra"/>
+        <div className="flex w-2/3">
+            <div  id="movement-dog-icon" className="w-1/2">
+                <DogWithZoom image_src={MovementDog} label="POKRET"  url="movement"/>
+            </div>
+            <div id="game-dog-div" className="w-1/2">
+                <div id="game-dog-icon">
+                 <DogWithZoom image_src={GameLogo} label="LITERO-IGRA" url="game"/>
+                </div>
+            </div>
         </div>
     </div>;
 }; 

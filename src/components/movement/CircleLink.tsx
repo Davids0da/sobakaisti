@@ -8,6 +8,7 @@ interface CircleLinkProps {
 
 export const CircleLink:FC<CircleLinkProps> = ({url, label}) => {
     return <Link to={url}>
-        <div className="border-2 rounded-full w-24 h-24 grid place-items-center border-black hover:w-28 hover:h-28">{label}</div>
+        <div id="circle-link" className="opacity-80 border-2 rounded-full w-20 h-20 grid place-items-center border-black hover:scale-110 duration-200">
+            <h3 className="text-xs font-['Noto_Sans', 'sans-serif'] font-bold">{label}</h3></div>
     </Link>;
 };

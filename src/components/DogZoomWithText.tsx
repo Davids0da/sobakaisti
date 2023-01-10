@@ -9,9 +9,9 @@ interface DogWithZoomProps {
 
 export const DogWithZoom: React.FC<DogWithZoomProps> = ({ label, image_src, url }) => {
     return <Link to={url}>
-        <div className="flex flex-col items-center group">
-            <img className="w-16 hover:w-20" src={image_src} />
-            <span className="hidden group-hover:inline">{label}</span>
+        <div className="flex flex-col place-items-center group hover:scale-110 duration-200">
+            <img className="w-16" src={image_src} />
+            <span className="opacity-0 mt-4 text-xs font-['Noto_Sans', 'sans-serif'] font-bold group-hover:opacity-80">{label}</span>
         </div>
     </Link>;
 };

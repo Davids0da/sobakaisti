@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import useSWR from "swr";
 import {getArticlesFetcher} from "../../../api/api";
-import {ArticleInCard} from "../ArticleInCard";
+import {ArticleInCard} from "./ArticleInCard";
 
 export const Manifesto:FC = () => {
     const { data } = useSWR("/articles?filters[article_type][$eq]=manifesto&populate=*" , getArticlesFetcher);
