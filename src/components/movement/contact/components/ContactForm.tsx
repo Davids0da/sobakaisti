@@ -1,31 +1,29 @@
 import React, {FC, useState} from "react";
+import {generateFullName} from "../../../../utilties";
+import useSWR from "swr";
+import {getUsersFetcher} from "../../../../api/api";
+import {useForm} from "react-hook-form";
 
-export const ContactForm: FC = () => {
 
+interface ContactFormProps {
+    selectedUserId: null | number
+}
+
+export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
     const [status, setStatus] = useState("Submit");
-    const handleSubmit = async (e: any) => {
-        e.preventDefault();
-        setStatus("Sending...");
-        const { name, email, subject, message } = e.target.elements;
-        let details = {
-            name: name.value,
-            email: email.value,
-            subject: subject.value,
-            message: message.value,
-        };
-        let response = await fetch("http://localhost:5000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json;charset=utf-8",
-            },
-            body: JSON.stringify(details),
-        });
-        setStatus("Submit");
-        let result = await response.json();
-        alert(result.status);
-    };
+    const { data } = useSWR("/users" , getUsersFetcher);
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+    console.log(selectedUserId, data);
+    const selectedUser = data?.find(u => u.id === selectedUserId) || null;
+    console.log(selectedUser);
+
+    function onSubmit(data: any) {
+        console.log(data);
+    }
+
     return (
-        <form className="w-1/2 pt-10" onSubmit={handleSubmit}>
+        <form className="w-1/2 pt-10" onSubmit={handleSubmit(onSubmit)}>
             <div id="prima">
                 <label htmlFor="prima" className="block text-sm font-medium text-gray-700">
                     Prima
@@ -33,10 +31,9 @@ export const ContactForm: FC = () => {
                 <div className="relative mt-1 rounded-md shadow-sm">
                     <input
                         disabled
-                        value="Bojan Dedic"
+                        value={generateFullName(selectedUser)}
                         type="text"
                         name="name"
-                        id="name"
                         className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         placeholder=""
                     />
@@ -49,9 +46,8 @@ export const ContactForm: FC = () => {
                     </label>
                     <div className="relative mt-1 rounded-md shadow-sm">
                         <input
+                            {...register("name", { required: true, maxLength: 20, minLength: 3 })}
                             type="text"
-                            name="name"
-                            id="name"
                             className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             placeholder="Unesite vaše ime"
                         />
@@ -64,8 +60,7 @@ export const ContactForm: FC = () => {
                     <div className="relative mt-1 rounded-md shadow-sm">
                         <input
                             type="email"
-                            name="email"
-                            id="email"
+                            {...register("email")}
                             className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             placeholder="Unesite vaš email"
                         />
@@ -79,8 +74,7 @@ export const ContactForm: FC = () => {
                 <div className="relative mt-1 rounded-md shadow-sm">
                     <input
                         type="text"
-                        name="subject"
-                        id="subject"
+                        {...register("subject")}
                         className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         placeholder="Unesite naslov poruke"
                     />
@@ -93,8 +87,7 @@ export const ContactForm: FC = () => {
                 <div className="relative mt-1 rounded-md shadow-sm">
                     <input
                         type="text"
-                        name="message"
-                        id="message"
+                        {...register("message")}
                         className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         placeholder="Unesite vašu poruku"
                     />

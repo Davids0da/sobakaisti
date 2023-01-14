@@ -9,7 +9,7 @@ export const LiteratureIndexPage:FC = () => {
 
     const { data } = useSWR("/articles?filters[article_type][$eq]=literature&populate=*" , getArticlesFetcher);
 
-    return <div className="container px-72 pt-4">
+    return <div className="pt-4">
         <MovementDogAndSocialIconsHeader />
         <div className="flex items-center w-full mt-6">
             <button className="flex justify-end w-full">HRONOLOŠKI</button>
@@ -19,7 +19,7 @@ export const LiteratureIndexPage:FC = () => {
         <h1 className="mt-6">Izdvajamo</h1>
         <hr className="mb-6" />
         <div className="flex flex-wrap">
-        {data?.map(article => <ArticleCard article={article} key={article.id} />)}
+            {data?.map(article => <ArticleCard article={article} key={article.id} />)}
         </div>
     </div>;
 };

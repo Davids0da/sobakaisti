@@ -2,13 +2,13 @@ import React, { FC } from "react";
 import {MovementDogAndSocialIconsHeader} from "../MovementDogAndSocialIconsHeader";
 import useSWR from "swr";
 import {getUsersFetcher} from "../../../api/api";
-import {AuthorCircleForContactPage} from "../contact/AuthorCircleForContactPage";
+import {AuthorCircleForContactPage} from "../contact/components/AuthorCircleForContactPage";
 import {CircleWithoutLink} from "../CircleWithoutLink";
 export const AuthorsIndexPage:FC = () => {
 
     const { data } = useSWR("/users" , getUsersFetcher);
     if (!data) {
-        return null
+        return null;
     }
     const half = Math.ceil( data?.length / 2);
     const firstHalf = data?.slice(0, half);
@@ -50,5 +50,5 @@ export const AuthorsIndexPage:FC = () => {
                 <a>Kane Andrea</a>
             </div>
         </div>
-    </div>
+    </div>;
 };

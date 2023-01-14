@@ -10,7 +10,7 @@ import {IndexPage} from "./components/IndexPage";
 import {MovementPage} from "./components/movement/MovementIndex";
 import {ManifestoIndexPage} from "./components/movement/manifesto/ManifestoIndexPage";
 import {GamePage} from "./components/game/GameIndex";
-import {ContatctPage} from "./components/movement/contact/ContactIndex";
+import {ContactIndexPage} from "./components/movement/contact/ContactIndex";
 import {ArtsIndexPage} from "./components/movement/arts/ArtsIndexPage";
 import {LiteratureIndexPage} from "./components/movement/arts/LiteratureIndexPage";
 import {AuthorsIndexPage} from "./components/movement/Author/AuthorsIndexPage";
@@ -18,22 +18,24 @@ import {AuthorsIndexPage} from "./components/movement/Author/AuthorsIndexPage";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
         <BrowserRouter>
-            <Routes>
-                <Route index element={<IndexPage />} />
-                <Route path="/movement" >
-                    <Route index element={<MovementPage />} />
-                    <Route path="manifesto" element={<ManifestoIndexPage />} />
-                    <Route path="contact" element={<ContatctPage />} />
-                    <Route path="authors" element={<AuthorsIndexPage />} />
-                    <Route path="arts"  >
-                       <Route index element={<ArtsIndexPage />} />
-                        <Route path="literature" element={<LiteratureIndexPage />} />
+            <div className="container">
+                <Routes>
+                    <Route index element={<IndexPage />} />
+                    <Route path="/movement" >
+                        <Route index element={<MovementPage />} />
+                        <Route path="manifesto" element={<ManifestoIndexPage />} />
+                        <Route path="contact" element={<ContactIndexPage />} />
+                        <Route path="authors" element={<AuthorsIndexPage />} />
+                        <Route path="arts"  >
+                            <Route index element={<ArtsIndexPage />} />
+                            <Route path="literature" element={<LiteratureIndexPage />} />
+                        </Route>
                     </Route>
-                </Route>
-                <Route path="/game">
-                    <Route index element={<GamePage />} />
-                </Route>
-            </Routes>
+                    <Route path="/game">
+                        <Route index element={<GamePage />} />
+                    </Route>
+                </Routes>
+            </div>
         </BrowserRouter>
     </React.StrictMode>,
 );
