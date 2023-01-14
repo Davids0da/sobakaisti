@@ -18,11 +18,7 @@ interface ArticleAtributesProps {
 }
 
 export interface UserProps {
-    attributes: UserAttributesProps
     id: string
-}
-
-interface UserAttributesProps {
     about: string
     birth_location: string
     blocked: boolean

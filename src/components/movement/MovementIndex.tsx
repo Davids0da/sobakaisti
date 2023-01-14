@@ -14,7 +14,7 @@ export const MovementPage: FC = () => {
             <CircleLink url="contact" label="KONTAKT"/>
         </div>
         <div className="flex mb-4 opacity-70">
-            <img className="w-4 transform -scale-x-100" src="./src/assets/movement_logo.svg"/>
+            <img className="w-4 transform -scale-x-[1]" src="/src/assets/movement_logo.svg"/>
             <p className="pl-2 text-xs">Sobakaisti &nbsp;©&nbsp; 2022</p>
         </div>
     </div>;

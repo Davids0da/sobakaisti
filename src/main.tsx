@@ -8,9 +8,12 @@ import {
 import "./main.css";
 import {IndexPage} from "./components/IndexPage";
 import {MovementPage} from "./components/movement/MovementIndex";
-import {Manifesto} from "./components/movement/manifesto/Manifesto";
+import {ManifestoIndexPage} from "./components/movement/manifesto/ManifestoIndexPage";
 import {GamePage} from "./components/game/GameIndex";
 import {ContatctPage} from "./components/movement/contact/ContactIndex";
+import {ArtsIndexPage} from "./components/movement/arts/ArtsIndexPage";
+import {LiteratureIndexPage} from "./components/movement/arts/LiteratureIndexPage";
+import {AuthorsIndexPage} from "./components/movement/Author/AuthorsIndexPage";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
@@ -19,8 +22,13 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
                 <Route index element={<IndexPage />} />
                 <Route path="/movement" >
                     <Route index element={<MovementPage />} />
-                    <Route path="manifesto" element={<Manifesto />} />
+                    <Route path="manifesto" element={<ManifestoIndexPage />} />
                     <Route path="contact" element={<ContatctPage />} />
+                    <Route path="authors" element={<AuthorsIndexPage />} />
+                    <Route path="arts"  >
+                       <Route index element={<ArtsIndexPage />} />
+                        <Route path="literature" element={<LiteratureIndexPage />} />
+                    </Route>
                 </Route>
                 <Route path="/game">
                     <Route index element={<GamePage />} />
