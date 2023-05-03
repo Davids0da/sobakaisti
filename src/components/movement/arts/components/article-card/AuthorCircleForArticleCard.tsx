@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import {UserProps} from "../../../api/types";
+import {UserProps} from "../../../../../api/types";
 
 interface UserProps1 {
     user: UserProps;

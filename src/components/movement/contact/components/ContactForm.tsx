@@ -1,8 +1,8 @@
-import React, {FC, useState} from "react";
-import {generateFullName} from "../../../../utilties";
+import React, { FC, useEffect, useState } from "react";
+import { generateFullName } from "../../../../utilties";
 import useSWR from "swr";
-import {getUsersFetcher} from "../../../../api/api";
-import {useForm} from "react-hook-form";
+import { getUsersFetcher, sendForm } from "../../../../api/api";
+import { useFieldArray, useForm } from "react-hook-form";
 
 
 interface ContactFormProps {
@@ -10,20 +10,61 @@ interface ContactFormProps {
 }
 
 export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
-    const [status, setStatus] = useState("Submit");
-    const { data } = useSWR("/users" , getUsersFetcher);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [status, setStatus] = useState("Pošalji");
+    const { data } = useSWR("/users", getUsersFetcher);
+    const { register, reset, setValue, handleSubmit, watch, formState: { errors } } = useForm();
 
-    console.log(selectedUserId, data);
     const selectedUser = data?.find(u => u.id === selectedUserId) || null;
-    console.log(selectedUser);
+
+    useEffect(() => {
+        setValue('message_to', generateFullName(selectedUser));
+    }, [selectedUser, selectedUserId])
 
     function onSubmit(data: any) {
-        console.log(data);
+        sendForm(data);
+        setStatus("Poruka je poslata!")
+        reset()
+        setValue('message_to', generateFullName(selectedUser));
+        setTimeout(function () {
+            setStatus("Pošalji novu poruku")
+        }, 3000);
     }
 
-    return (
-        <form className="w-1/2 pt-10" onSubmit={handleSubmit(onSubmit)}>
+    if (!selectedUser) {
+        return null
+    }
+
+    return <div className={`w-full flex flex-col items-center`}>
+        <div className="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+
+                    <div
+                        className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                        <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                            <div className="sm:flex sm:items-start">
+                                <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                    <h3 className="text-lg font-medium leading-6 text-gray-900"
+                                        id="modal-title">Poruka poslata</h3>
+                                    <div className="mt-2">
+                                        <p className="text-sm text-gray-500">Naš junak će se ubrzo javiti Vama. Hvala vam!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                            <button type="button"
+                                className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Ok
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form className="md:w-1/2 sm:w-full px-5 pt-10" onSubmit={handleSubmit(onSubmit)}>
             <div id="prima">
                 <label htmlFor="prima" className="block text-sm font-medium text-gray-700">
                     Prima
@@ -31,10 +72,10 @@ export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
                 <div className="relative mt-1 rounded-md shadow-sm">
                     <input
                         disabled
-                        value={generateFullName(selectedUser)}
+                        {...register("message_to")}
                         type="text"
                         name="name"
-                        className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm text-cyan-600 font-semibold "
                         placeholder=""
                     />
                 </div>
@@ -48,7 +89,7 @@ export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
                         <input
                             {...register("name", { required: true, maxLength: 20, minLength: 3 })}
                             type="text"
-                            className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                             placeholder="Unesite vaše ime"
                         />
                     </div>
@@ -61,7 +102,7 @@ export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
                         <input
                             type="email"
                             {...register("email")}
-                            className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                            className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                             placeholder="Unesite vaš email"
                         />
                     </div>
@@ -75,7 +116,7 @@ export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
                     <input
                         type="text"
                         {...register("subject")}
-                        className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                         placeholder="Unesite naslov poruke"
                     />
                 </div>
@@ -85,17 +126,17 @@ export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
                     Tekst Poruke
                 </label>
                 <div className="relative mt-1 rounded-md shadow-sm">
-                    <input
+                    <textarea
                         type="text"
                         {...register("message")}
-                        className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                         placeholder="Unesite vašu poruku"
                     />
                 </div>
             </div>
-            <button type="submit" className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+            <button type="submit" className="bg-cyan-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-4">
                 {status}
             </button>
         </form>
-    );
+    </div>
 };

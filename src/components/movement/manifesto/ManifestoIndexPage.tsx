@@ -1,11 +1,18 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import useSWR from "swr";
-import {getArticlesFetcher} from "../../../api/api";
-import {ArticleCard} from "../arts/ArticleCard";
+import { getArticlesFetcher } from "../../../api/api";
+import { ArticleCard } from "../arts/components/article-card/ArticleCard";
+import { MovementDogAndSocialIconsHeader } from "../MovementDogAndSocialIconsHeader";
+import { MovementFooter } from "../MovementFooter";
 
 
-export const ManifestoIndexPage:FC = () => {
+export const ManifestoIndexPage: FC = () => {
     return <div>
-        manifest
+        <MovementDogAndSocialIconsHeader />
+        <div className={`flex flex-col items-center mt-10`}>
+            <h1 className={`text-2xl font-bold`}>MANIFEST</h1>
+            <p className={`mt-10 mb-10 w-2/3 `}> Mi smo Sobakaisti. Nismo se udružili iz političkih razloga, nije nas nikakva propaganda spojila, ne drže nas nacionalne ni verske stege, ništa tako jeftino kao krv nas ne spaja, novcu se ne klanjamo. Nismo se okupili oko jedne zastave, niti nas je ista zvezda vodila do ovog mesta. Naše su veze egzistencijalne – mi živimo radi umetnosti. Mi smo svi davljenici u moru banalne svakodnevice, a ovaj kružok je naše ostrvo, naša mala ada, naša luka u koju pristajemo da se odmorimo, jer život je prokleto dug, a more je retko mirno. Svaki od nas je svoj njuh pratio da bi došao dovde. Prepoznali smo se međusobno po nekom tajnom znaku koji nam niko nije pokazao, čuli smo muziku i pratili smo zvuk, svako je u sebi našao obeležje, čudni beleg naše sudbine, jer mi svi verujemo da smo izabranici, da smo proroci u novom svetu gde će umetnost biti važnija od televizije, važnija od zabave, gde će umetnost biti potreba, fizička i duhovna neophodnost. <br /><br /> Mi smo Sobakaisti. Mi smo psi što besno grizu za umetnost, mi smo čuvari bogate riznice svetske kulturne tradicije, mi smo vodiči onima što ne znaju za ovaj put. Nismo postmodernisti, nismo lapurlatisti, ali nismo ni inokosni – znamo ko je pre nas bio ovde, ali niko se do kosti nije dao kao što je svaki od nas spreman. Ima u nama one sile sa početka dvadesetog veka, kada je u ratovima, u krvavim okršajima, i književnost učestvovala, kada su slike bombardovale, a filmovi rešetali mase. Ima u nama nešto od te angažovanosti, ali mi nećemo nove obračune, sramnu neljudskost sveta, mi hoćemo da se čovečanstvo i u miru seti humanizma, da se pita o smislu života, a kako drugačije nego – umetnošću. Ne mislimo da je masna kobasica važnija od Šekspira, niti da Šekspir zasiti prazan stomak, ali lajemo na one što srljaju u trivijalnost postojanja, lajemo na debele mešine što nisu gladne umetnosti. <br /><br /> Mi smo Sobakaisti i stvaranje nam je svetinja. Verujemo u Kreaciju, u ono što nadvisuje propadljivost i destrukciju, ono što doseže dalje od svake periodike, ono što može da se oglasi u tišini vekova. Verujemo da će sve što stvori i jedan od nas promeniti svet; ne brinemo se kada će se to dogoditi, da li sutra ili za hiljadu godina, jer za nas je Altamira muzej čovečanstva, isto kao i Muzej savremene umetnosti u Beogradu, (nedostupan koliko i sama pećina). Sve što smo danas posejali, može da izbije iz zemlje bilo kada u večnosti postojanja, kao što smo mi našli korene u celom svetu i žile su nam duboko u Južnoj Americi, u kulturi Inka i Maja, u Africi i njenoj bolnoj istoriji, u džezu, u Luvru, u Rusiji i Istoku, i duboko, duboko, duboko na Balkanu. I kako smo pojedinačno nalazili put kroz gustu šumu gluposti, tako će i nas neko naći, jer onaj koji se daje traženju, taj i nalazi.<br /><br /> Mi smo Sobakaisti i ne plašimo se greške, improvizacije, iskrenosti, pokušaja, muke i znoja. Ne plašimo se da ćemo ostati nezapaženi, a ne žudimo za slavom. Naši su ciljevi da promenimo stvarnost, a za to smo odabrali težak put, da od ovoga što imamo stvorimo bolji svet, a ne da uništimo sve postojeće i iz pepela podižemo našu realnost. Mi znamo, neki od nas su i videli budućnost – umetnost će spasiti čovečanstvo i planeta Zemlja biće domovina svih nas. Ove Reči su novi početak.<br /><br /> Radićemo neumorno. I proširivaćemo se. Dozivaćemo jedni druge i spajati se. Nećemo biti stranci nijednoj umetnosti i u svakoj ćemo dati novu stvarnost. Krećemo od književnosti, jer je i u prvom krugu na početku bila Reč. <br /><br /> Mi, Sobakaisti, zaklinjemo se da ćemo verno služiti Stvaranju, zaklinjemo se na večnu vernost Umetnosti.</p>
+        </div>
+        <MovementFooter />
     </div>;
 };

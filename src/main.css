@@ -6,16 +6,39 @@
 * Blinkajuci kursor
 */
 @-moz-keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
+
 @-webkit-keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
+
 @keyframes blink {
-    from, to { opacity: 1; }
-    50% { opacity: 0; }
+
+    from,
+    to {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 #game-dog-div:after {
@@ -38,9 +61,21 @@
 * Slajd desno za kuče na početnoj
 */
 @keyframes slide-right {
-    0% { opacity: 0; }
-    50% { opacity: 0; transform: translateX(-43%);}
-    75% { opacity: 0.85; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(-50%);
+        pointer-events: none;
+    }
+
+    75% {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
     100% {
         /* visibility: visible; */
         opacity: 1;
@@ -49,19 +84,98 @@
     }
 }
 
-#game-dog-icon {
-    -webkit-animation: slide-right 2s ease-out normal 1 forwards;
-    animation: slide-right 2s ease-out normal 1 forwards;
+/*
+* Slajd desno i levo na movement index pageu
+*/
+@keyframes slide-right-movement {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(-90%);
+    }
+
+    75% {
+        opacity: 0.85;
+    }
+
+    100% {
+        /* visibility: visible; */
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
 }
 
+@keyframes slide-left-movement {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(90%);
+    }
+
+    75% {
+        opacity: 0.85;
+    }
+
+    100% {
+        /* visibility: visible; */
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+
+
+#game-dog-icon {
+    -webkit-animation: slide-right 1.6s ease-out normal 1 forwards;
+    animation: slide-right 1.6s ease-out normal 1 forwards;
+}
+
+#circle-link-5 {
+    -webkit-animation: slide-right-movement 1s normal 1 forwards;
+    animation: slide-right-movement 1s normal 1 forwards;
+}
+
+#circle-link-4 {
+    -webkit-animation: slide-right-movement 0.6s normal 1 forwards;
+    animation: slide-right-movement 0.6s normal 1 forwards;
+}
+
+#circle-link-1 {
+    -webkit-animation: slide-left-movement 1s normal 1 forwards;
+    animation: slide-left-movement 1s normal 1 forwards;
+}
+
+#circle-link-2 {
+    -webkit-animation: slide-left-movement 0.6s normal 1 forwards;
+    animation: slide-left-movement 0.6s normal 1 forwards;
+}
 
 /*
 * Slajd levo za kuče na početnoj
 */
 @keyframes slide-left {
-    0% { opacity: 0; }
-    50% { opacity: 0; transform: translateX(43%);}
-    75% { opacity: 0.85; }
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+        transform: translateX(50%);
+        pointer-events: none;
+    }
+
+    75% {
+        opacity: 1;
+        pointer-events: initial;
+    }
+
     100% {
         /*  visibility: visible; */
         opacity: 1;
@@ -71,22 +185,250 @@
 }
 
 #movement-dog-icon {
-    -webkit-animation: slide-left 2s ease-out normal 1 forwards;
-    animation: slide-left 2s ease-out normal 1 forwards;
+    -webkit-animation: slide-left 1.6s ease-out normal 1 forwards;
+    animation: slide-left 1.6s ease-out normal 1 forwards;
 }
 
 /*
 * Senka za krugove na Movement strani
 */
 #circle-link {
-    -webkit-box-shadow: 0 3px 12px rgba(27,31,35,0.15);
-    -moz-box-shadow: 0 3px 12px rgba(27,31,35,0.15);
-    box-shadow: 0 3px 12px rgba(27,31,35,0.15);
+    -webkit-box-shadow: 0 3px 12px rgba(27, 31, 35, 0.15);
+    -moz-box-shadow: 0 3px 12px rgba(27, 31, 35, 0.15);
+    box-shadow: 0 3px 12px rgba(27, 31, 35, 0.15);
 }
 
 /*
 * Movement strana transition za krugove na ulazu
 */
-#circle-link {
+#circle-link {}
 
+
+/*
+* Slajd elemente na Arts strani
+*/
+@keyframes slide-top-movement {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateY(120%);
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        /* visibility: visible; */
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+
+#arts-button-1 {
+    -webkit-animation: slide-top-movement 0.6s normal 1 forwards;
+    animation: slide-top-movement 0.6s normal 1 forwards;
+}
+
+@keyframes slide-left1-movement {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        /* visibility: visible; */
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+
+#arts-button-2 {
+    -webkit-animation: slide-left1-movement 0.4s normal 1 forwards;
+    animation: slide-left1-movement 0.4s normal 1 forwards;
+}
+
+@keyframes slide-right1-movement {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+        transform: translateX(-120%);
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        /* visibility: visible; */
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+
+#arts-button-3 {
+    -webkit-animation: slide-right1-movement 0.8s normal 1 forwards;
+    animation: slide-right1-movement 0.8s normal 1 forwards;
+}
+
+@keyframes slide-left-bottom-movement {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+        transform: translate(70%, -120%);
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        /* visibility: visible; */
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+
+#arts-button-4 {
+    /*opacity: 0;*/
+    -webkit-animation: slide-left-bottom-movement 1.2s normal 1 forwards;
+    animation: slide-left-bottom-movement 1.2s normal 1 forwards;
+    /*animation-delay: 0.4s;*/
+}
+
+@keyframes slide-right-bottom-movement {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+        transform: translate(-70%, -120%);
+    }
+
+    90% {
+        opacity: 0.85;
+    }
+
+    100% {
+        /* visibility: visible; */
+        opacity: 1;
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+    }
+}
+
+#arts-button-5 {
+    /*opacity: 0;*/
+    -webkit-animation: slide-right-bottom-movement 1s normal 1 forwards;
+    animation: slide-right-bottom-movement 1s normal 1 forwards;
+    /*animation-delay: 0.2s;*/
+}
+
+/*Circular background animation*/
+#circular-progress-animation {
+    -webkit-animation: circular-progress 2s 1 ease-in normal forwards;
+    -moz-animation: circular-progress 2s 1 ease-in normal forwards;
+    -o-animation: circular-progress 2s 1 ease-in normal forwards;
+    animation: circular-progress 2s 1 ease-in normal forwards;
+}
+
+@-webkit-keyframes circular-progress {
+    from {
+        stroke-dashoffset: 284.744;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-moz-keyframes circular-progress {
+    from {
+        stroke-dashoffset: 284.744;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-o-keyframes circular-progress {
+    from {
+        stroke-dashoffset: 284.744;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes circular-progress {
+    from {
+        stroke-dashoffset: 284.744;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Import za font Sobakaisti */
+@font-face {
+    font-family: 'SOBAKAISTI';
+    src: url('/src/assets/fonts/sobakaisti.ttf') format('woff');
+}
+
+/* <a> element stil */
+/* a { 
+    color: rgb(8 145 178);
+}
+
+a:hover { 
+    color: rgb(234 179 8);
+} */
+
+@media only screen and (max-width: 768px) {
+    #game-dog-icon {
+        -webkit-animation: slide-right 1s ease-out normal 1 forwards;
+        animation: slide-right 1s ease-out normal 1 forwards;
+    }
+
+    #movement-dog-icon {
+        -webkit-animation: slide-left 1s ease-out normal 1 forwards;
+        animation: slide-left 1s ease-out normal 1 forwards;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #game-dog-icon {
+        -webkit-animation: slide-right 0.6s ease-out normal 1 forwards;
+        animation: slide-right 0.6s ease-out normal 1 forwards;
+    }
+
+    #movement-dog-icon {
+        -webkit-animation: slide-left 0.6s ease-out normal 1 forwards;
+        animation: slide-left 0.6s ease-out normal 1 forwards;
+    }
 }

@@ -12,7 +12,12 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Noto_Sans','sans-serif'],
+        'sobakaisti': ['SOBAKAISTI']
+      }
+    },
   },
   plugins: [
       require('@tailwindcss/forms'),
