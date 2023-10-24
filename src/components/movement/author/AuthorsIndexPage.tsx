@@ -23,7 +23,11 @@ export const AuthorsIndexPage: FC = () => {
     const firstHalf = data?.slice(0, half);
     const secondHalf = data?.slice(half);
 
-    const selectedUser = data.find(user => user.slug === params.slug) ;
+    const selectedUser = data.find(user => user.slug === params.slug);
+
+    if(!selectedUser) {
+        return null;
+    }
 
     const circleLabel = "AUTORI";
 
