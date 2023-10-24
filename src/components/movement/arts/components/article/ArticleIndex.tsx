@@ -23,6 +23,8 @@ export const ArticleIndexPage: FC = () => {
         return null
     }
 
+    console.log(data.attributes, 'xD');
+
     const tagsArray = data.attributes.tags.data.map(tag => tag.attributes.name);
     const goToCertainTagPage = (tag: string) => {
         navigate(`/movement/articles/tags/${tag}`);
@@ -31,15 +33,16 @@ export const ArticleIndexPage: FC = () => {
 
     // Multiple images for carousel
     const multipleImagesForCarousel = data.attributes.article_image.data;
+    console.log(multipleImagesForCarousel, 'xD');
 
     // Published date with plugin
     const publishedDate = formatDistance(new Date(data.attributes.publishedAt), new Date(), { addSuffix: true, locale: srLatn })
 
     // Handle article content render for images to add ApiUrl
     function createMarkup() {
-        const htmlContent = { __html: data.attributes.content };
+        const htmlContent = { __html: data?.attributes.content };
         const re = /<img src="/gm
-        const newStr = htmlContent.__html.replace(re, `<img src="${ApiUrl}`)
+        const newStr = htmlContent.__html?.replace(re, `<img src="${ApiUrl}`) || "";
         const htmlContentRender = { __html: newStr };
         return htmlContentRender
     }
@@ -86,7 +89,7 @@ export const ArticleIndexPage: FC = () => {
                 <div className={`flex flex-col`}>
                     {data.attributes.comments?.data.length !== 0 && <h3 className="text-lg font-semibold text-gray-900">Komentari</h3>}
                 </div>
-                {data.attributes.comments?.data.map(comment => <Comments comment={comment.attributes} key={comment.id} />)}
+                {data.attributes.comments?.data.map(comment => <Comments attributes={comment.attributes} key={comment.id} />)}
                 <h3 className="text-lg font-semibold text-gray-900 mt-10">Postavi komentar</h3>
                 <PostComment />
             </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ArticleProps, GameArticleProps, MapProps, ShopProductProps, TagProps, UserProps } from "./types";
+import { ArticleProps, CommentProps, CvProps, GameArticleProps, MapProps, ShopProductProps, TagProps, UserProps } from "./types";
 
 const token = "89f83e45519593f702b56784b16de327d36d5238418bc76b723471d4d97f6e8bca5332d0d95983d1898b3ce53bc76339bd28ae65105018ef4951647edacd0d1ac0db53e47d071f95a83bde78848af6fb934bd65b53a92d24eecdf7205b58ac2225525e404d650b53bae1c49958eaa74a66dd680a01d659fb4124077b10d12d7b";
 
@@ -54,20 +54,12 @@ export const getCvFetcher = (entity: string): Promise<CvProps> => {
     return instance.get(entity).then(data => data.data.data)
 }
 
-export interface CvProps {
-    content: string;
-}
-
 export interface FormProps {
     name: string
     email: string
     subject: string
     message: string
     message_to: string
-}
-
-export interface CommentProps {
-    message: string;
 }
 
 export const sendForm = async (formProps: FormProps) => {

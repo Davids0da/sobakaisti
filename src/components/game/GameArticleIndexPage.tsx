@@ -17,7 +17,7 @@ export const GameArticleIndexPage: FC = () => {
     function createMarkup() {
         const htmlContent = { __html: data?.attributes.about };
         const re = /<img src="/gm
-        const newStr = htmlContent.__html.replace(re, `<img src="${ApiUrl}`)
+        const newStr = htmlContent.__html?.replace(re, `<img src="${ApiUrl}`) || "";
         const htmlContentRender = { __html: newStr };
         return htmlContentRender
     }

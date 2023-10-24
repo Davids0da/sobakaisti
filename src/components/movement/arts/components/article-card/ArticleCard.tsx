@@ -1,13 +1,11 @@
 import { FC } from "react";
-import { ArticleProps } from "../../../../../api/types";
+import { ArticleInCardProps, ArticleProps } from "../../../../../api/types";
 import { AuthorCircleForArticleCard } from "./AuthorCircleForArticleCard";
 import { formatDistance } from "date-fns";
 import { srLatn } from "date-fns/locale";
 import { Link } from "react-router-dom";
 
-interface ArticleInCardProps {
-    article: ArticleProps
-}
+
 export const ArticleCard: FC<ArticleInCardProps> = ({ article }) => {
 
     const publishedDate = formatDistance(new Date(article.attributes.publishedAt), new Date(), { addSuffix: true, locale: srLatn })

@@ -16,6 +16,10 @@ export const CampaignIndexPage: FC = () => {
         setVisible(prevValue => prevValue + 4);
     }
 
+    if(!data) {
+        return null;
+    }
+
     return <div className="bg-white">
         <GameDogAndSocialIconsHeader />
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">

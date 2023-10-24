@@ -16,7 +16,7 @@ export const ArtsIndexPage: FC = () => {
                     <ButtonWithIcon type={`music`} />
                 </div>
                 <div>
-                    <CircleWithoutLink label="RADOVI" />
+                    <CircleWithoutLink article_or_user={true} label="RADOVI" />
                 </div>
                 <div id={`arts-button-3`}>
                     <ButtonWithIcon type={`paintings`} />

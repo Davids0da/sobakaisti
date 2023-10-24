@@ -1,10 +1,9 @@
 import React, { useState , FC } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
+import { ArticleImageCarouseleProps } from '../../../../../api/types';
 
-interface ArticleImageCarouseleProps {
-    images: []
-}
+
 export const ArticleImageCarousle:FC<ArticleImageCarouseleProps> = ({images}) => {
 
     const ApiUrl = "http://localhost:1337";
@@ -24,7 +23,7 @@ export const ArticleImageCarousle:FC<ArticleImageCarouseleProps> = ({images}) =>
         setCurrentIndex(newIndex);
     };
 
-    const goToSlide = (slideIndex) => {
+    const goToSlide = (slideIndex: number) => {
         setCurrentIndex(slideIndex);
     };
 

@@ -25,6 +25,10 @@ export const AuthorsIndexPage: FC = () => {
 
     const selectedUser = data.find(user => user.slug === params.slug);
 
+    if(!selectedUser) {
+        return null;
+    }
+
     const circleLabel = "AUTORI";
 
     const getInitialsWithDots = (user: UserProps) => {

@@ -23,7 +23,9 @@ export const LitteroMapPost: FC = () => {
   const markers = data.attributes.markers.data;
   const selectedMarker = markers.find(marker => marker.id === selectedMarkerId);
 
-  function createMarkup(html) {
+  console.log(data.attributes, '2222');
+
+  function createMarkup(html: string) {
     const htmlContent = { __html: html };
     const re = /<img src="/gm
     const newStr = htmlContent.__html.replace(re, `<img src="${ApiUrl}`)

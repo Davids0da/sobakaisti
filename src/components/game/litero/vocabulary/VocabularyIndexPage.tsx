@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useRef, useState, MutableRefObject } from "react";
 import { GameDogAndSocialIconsHeader } from "../../GameDogAndSocialIconsHeader";
 import useSWR from "swr";
 import { getTagsFetcher } from "../../../../api/api";
@@ -9,7 +9,7 @@ export const VocabularyIndexPage: FC = () => {
 
     const ApiUrl = "http://localhost:1337";
 
-    const myRef = useRef();
+    const myRef: MutableRefObject<HTMLHeadingElement | null> = useRef(null);
 
     const [tag, setTag] = useState('A');
     const [about, setAbout] = useState('');
@@ -24,12 +24,15 @@ export const VocabularyIndexPage: FC = () => {
     }
 
     const setTagAbout = (attributes: any) => {
+        if(!myRef.current) {
+            return null;
+        } 
         setAbout(attributes.about);
         setTagName(attributes.name);
         window.scrollTo(0, myRef.current.offsetTop - 40);
     }
 
-    function createMarkup(html) {
+    function createMarkup(html: string) {
         const htmlContent = { __html: html };
         const re = /<img src="/gm
         const newStr = htmlContent.__html.replace(re, `<img src="${ApiUrl}`)

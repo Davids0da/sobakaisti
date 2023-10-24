@@ -75,7 +75,6 @@ export const PostComment: FC = () => {
                 </label>
                 <div className="relative mt-1 rounded-md shadow-sm">
                     <textarea required
-                        type="text"
                         {...register("comment")}
                         className="text-area block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-green-600 focus:ring-green-600 sm:text-sm"
                         placeholder="Unesite vaš komentar"

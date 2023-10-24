@@ -27,6 +27,10 @@ export const ArtTypeIndexPage: FC<ArtTypeIndexPageProps> = ({ type }) => {
         setVisible(prevValue => prevValue + 4);
     }
 
+    if (!data) {
+        return null
+    }
+
     return <div>
         <MovementDogAndSocialIconsHeader />
         {type === `tags` && <div className={`flex justify-center w-full mt-10`}><h1 className={`font-bold text-2xl`}>#{params.slug}</h1></div>}

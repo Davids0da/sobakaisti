@@ -7,7 +7,7 @@ export const IndexPage: FC = () => {
 
     const [visible, setVisible] = useState(false);
 
-    const handleChange = () => {
+    const handleChange = (event: any) => {
         if (event?.target.value === 'sobakaisti123') {
             setVisible(true);
         }

@@ -15,6 +15,10 @@ export const ArticleHeader:FC<ArticleHeaderProps>  = ({ type}) => {
 
     const articleTypes = ['literature', 'photography', 'video', 'paintings', 'music']
 
+    if(!data) {
+        return null;
+    }
+
     const currentArticleType = data?.slice(0,1)[0].attributes.article_type;
 
     const articleTypesWithoutCurrentType = articleTypes.filter(e => e !== currentArticleType);
