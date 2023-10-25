@@ -5,7 +5,7 @@ import { GameDogAndSocialIconsHeader } from "../GameDogAndSocialIconsHeader";
 import { GameFooter } from "../GameFooter";
 
 export const RandomIndexPage: FC = () => {
-    const ApiUrl = process.env.VITE_BASE_URL;
+    const ApiUrl = import.meta.env.VITE_BASE_URL;
 
     const { data } = useSWR(`/game-articles?populate=*`, getGameArticlesFetcher);
     if (!data) {

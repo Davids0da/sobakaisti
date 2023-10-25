@@ -10,7 +10,7 @@ import { GameFooter } from "../GameFooter";
 
 export const LitteroMapPost: FC = () => {
 
-  const ApiUrl = process.env.VITE_BASE_URL;
+  const ApiUrl = import.meta.env.VITE_BASE_URL;
 
   const [selectedMarkerId, setSelectedMarkerId] = useState(0);
   const params = useParams();

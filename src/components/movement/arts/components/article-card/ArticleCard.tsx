@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export const ArticleCard: FC<ArticleInCardProps> = ({ article }) => {
 
     const publishedDate = formatDistance(new Date(article.attributes.publishedAt), new Date(), { addSuffix: true, locale: srLatn })
-    const ApiUrl = "http://localhost:1337";
+    const ApiUrl = import.meta.env.VITE_BASE_URL;
 
     return <div className="flex h-48 lg:w-1/2 sm:w-full mb-6 border border-gray-200 shadow-md lighy:border-gray-700 bg-white">
         <Link className="w-2/5 flex" to={`/movement/articles/${article.attributes.slug}`}>

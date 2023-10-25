@@ -15,7 +15,7 @@ import { TagsComponent } from "./Tags";
 
 
 export const ArticleIndexPage: FC = () => {
-    const ApiUrl = process.env.VITE_BASE_URL;
+    const ApiUrl = import.meta.env.VITE_BASE_URL;
     const params = useParams();
     const navigate = useNavigate();
     const { data } = useSWR(`/articles/${params.slug}?populate=*`, getArticleFetcher);

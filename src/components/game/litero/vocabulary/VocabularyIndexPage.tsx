@@ -7,7 +7,7 @@ import { GameFooter } from "../../GameFooter";
 
 export const VocabularyIndexPage: FC = () => {
 
-    const ApiUrl = process.env.VITE_BASE_URL;;
+    const ApiUrl = import.meta.env.VITE_BASE_URL;;
 
     const myRef: MutableRefObject<HTMLHeadingElement | null> = useRef(null);
 

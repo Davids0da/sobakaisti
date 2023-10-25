@@ -10,7 +10,7 @@ interface GameListItemsProps {
 
 export const GameListItem: FC<GameListItemsProps> = ({ image_url, title, short_about, slug }) => {
 
-    const ApiUrl = process.env.VITE_BASE_URL;
+    const ApiUrl = import.meta.env.VITE_BASE_URL;
 
     return <Link to={slug}><div className="group relative">
         <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">

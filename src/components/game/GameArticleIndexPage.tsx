@@ -7,7 +7,7 @@ import { GameFooter } from "./GameFooter";
 
 export const GameArticleIndexPage: FC = () => {
     const params = useParams();
-    const ApiUrl = "http://localhost:1337";
+    const ApiUrl = import.meta.env.VITE_BASE_URL;
 
     const { data } = useSWR(`/game-articles/${params.slug}?populate=*`, getGameArticleFetcher);
     if (!data) {
