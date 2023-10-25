@@ -6,7 +6,7 @@ import { ArticleImageCarouseleProps } from '../../../../../api/types';
 
 export const ArticleImageCarousle:FC<ArticleImageCarouseleProps> = ({images}) => {
 
-    const ApiUrl = "http://localhost:1337";
+    const ApiUrl = process.env.VITE_BASE_URL;
     const imageUrlsForCarousel = images.map(image => ({ url: ApiUrl + image.attributes.url }))
 
     const [currentIndex, setCurrentIndex] = useState(0);

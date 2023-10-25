@@ -9,7 +9,7 @@ import { GameFooter } from "../GameFooter";
 
 export const ProductIndexPage: FC = () => {
     const params = useParams();
-    const ApiUrl = "http://localhost:1337";
+    const ApiUrl = process.env.VITE_BASE_URL;
 
     const { data } = useSWR(`/products/${params.slug}?populate=*`, getProductFetcher);
     if (!data) {
