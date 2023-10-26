@@ -23,14 +23,9 @@ export const AuthorsIndexPage: FC = () => {
     const firstHalf = data?.slice(0, half);
     const secondHalf = data?.slice(half);
 
-    const selectedUser = data.find(user => user.slug === params.slug);
-
-    if(!selectedUser) {
-        return null;
-    }
-
+    const selectedUser = data?.find(user => user.slug === params.slug);
+   
     const circleLabel = "AUTORI";
-
     const getInitialsWithDots = (user: UserProps) => {
         return user.first_name[0].toUpperCase() + "." + user.last_name[0].toUpperCase() + ".";
     };
@@ -44,7 +39,7 @@ export const AuthorsIndexPage: FC = () => {
                 </div>
                 <div className="mx-6 flex justify-center">
                     {params.slug === undefined && <CircleWithoutLink article_or_user={true} label={circleLabel} />}
-                    {params.slug !== undefined && <CircleWithoutLink article_or_user={false} label={getInitialsWithDots(selectedUser)} />}
+                    {params.slug !== undefined && selectedUser && <CircleWithoutLink article_or_user={false} label={getInitialsWithDots(selectedUser)} />}
                 </div>
                 <div className="flex w-full">
                     {secondHalf?.map(user => <AuthorCircleForAUthorsPage setSelectedUserId={setSelectedId} user={user} key={user.id} selectedId={selectedId} />)}
@@ -52,7 +47,7 @@ export const AuthorsIndexPage: FC = () => {
             </div>
         </div>
         <div className="w-full">
-            {params.slug !== undefined && <AuthorBiographyAndNameDivision user={selectedUser} />}
+            {params.slug !== undefined && selectedUser &&<AuthorBiographyAndNameDivision user={selectedUser} />}
             {params.slug === undefined && <AboutAuthors />}
         </div>
         <MovementFooter />
