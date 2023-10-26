@@ -7,18 +7,20 @@ import { getMapFetcher } from "../../../api/api";
 import { GameDogAndSocialIconsHeader } from "../GameDogAndSocialIconsHeader";
 import useSWR from "swr";
 import { GameFooter } from "../GameFooter";
-import ArrowIcon from "/src/assets/pins/arrow.png";
-import EventIcon from "/src/assets/pins/event.png";
-import DiceIcon from "/src/assets/pins/dice.png";
-import GameIcon from "/src/assets/pins/game.png";
-import HatIcon from "/src/assets/pins/hat.png";
-import MusicIcon from "/src/assets/pins/music.png"; 
-import PhotoIcon from "/src/assets/pins/photo.png";
-import QuestionIcon from "/src/assets/pins/question.png";
-import SignIcon from "/src/assets/pins/sign.png";
-import TreasureIcon from "/src/assets/pins/treasure.png";
+import arrow from "/src/assets/pins/arrow.png";
+import event from "/src/assets/pins/event.png";
+import dice from "/src/assets/pins/dice.png";
+import game from "/src/assets/pins/game.png";
+import hat from "/src/assets/pins/hat.png";
+import music from "/src/assets/pins/music.png"; 
+import photo from "/src/assets/pins/photo.png";
+import question from "/src/assets/pins/question.png";
+import sign from "/src/assets/pins/sign.png";
+import treasure from "/src/assets/pins/treasure.png";
 
 export const LitteroMapPost: FC = () => {
+
+  const pins = [ arrow , event , dice, game, hat, music, photo , question , sign , treasure];
 
   const ApiUrl = import.meta.env.VITE_BASE_URL;
 
@@ -44,7 +46,7 @@ export const LitteroMapPost: FC = () => {
   // Markers
   const getMarkerIcon = (label: string) => {
     return new L.Icon({
-      iconUrl: `/src/assets/pins/${label}.png`,
+      iconUrl: pins.find(pin => pin.toString() === `/src/assets/pins/${label}.png`),
       iconSize: [40, 65]
     })
   }
