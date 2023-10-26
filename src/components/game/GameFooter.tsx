@@ -1,13 +1,14 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { SocialIcons } from "../movement/SocialIcons";
+import LiteroGameLogo from "/src/assets/literogame_logo.svg"
 
 export const GameFooter: FC = () => {
     return <footer className="p-4 md:mt-16 sm:mt-2 bg-white sm:p-6">
         <div className="md:flex md:justify-between">
             <div className="mb-10 md:mb-0 sm:hidden">
                 <a href="/game" className="flex items-center">
-                    <img src="/src/assets/literogame_logo.svg" className="h-24 mr-3" alt="Sobakaisti Logo" />
+                    <img src={LiteroGameLogo} className="h-24 mr-3" alt="Sobakaisti Logo" />
                 </a>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -56,7 +57,7 @@ export const GameFooter: FC = () => {
             </div>
             <div className="mb-6 md:mb-0">
                 <a href="/game" className="flex max-[768px]:hidden items-center">
-                    <img src="/src/assets/literogame_logo.svg" className="h-24 mr-3" alt="Sobakaisti Logo" />
+                    <img src={LiteroGameLogo} className="h-24 mr-3" alt="Sobakaisti Logo" />
                 </a>
             </div>
         </div>

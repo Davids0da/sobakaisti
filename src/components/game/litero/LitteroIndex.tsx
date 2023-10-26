@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GameDogAndSocialIconsHeader } from "../GameDogAndSocialIconsHeader";
+import LiterogameLogo from "/src/assets/literogame_logo.svg";
+import MovementLogo from "/src/assets/movement_logo.svg";
 
 export const LitteroIndex: FC = () => {
 
@@ -32,7 +34,7 @@ export const LitteroIndex: FC = () => {
             </div>
             <div className="items-center flex">
                 <button onClick={goBackToIconPage}>
-                    <img className="w-20" src="/src/assets/literogame_logo.svg" />
+                    <img className="w-20" src={LiterogameLogo} />
                 </button>
             </div>
             <div>
@@ -53,7 +55,7 @@ export const LitteroIndex: FC = () => {
             </div>
         </div>
         <div className="flex justify-center mb-4 opacity-70">
-            <img className="w-4 transform -scale-x-100" src="/src/assets/movement_logo.svg" />
+            <img className="w-4 transform -scale-x-100" src={MovementLogo} />
             <p className="pl-2 text-xs ">Sobakaisti &nbsp;©&nbsp; 2023</p>
         </div>
     </div>;

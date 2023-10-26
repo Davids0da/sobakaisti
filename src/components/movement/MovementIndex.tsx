@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { CircleLink } from "./CircleLink"
 import { HomeButton } from "../HomeButton";
-import { MovementDog } from "./MovementDog";
+import MovementDog from "/src/assets/movement_logo.svg";
 
 
 export const MovementPage: FC = () => {
@@ -17,7 +17,7 @@ export const MovementPage: FC = () => {
                     <CircleLink url="arts" label="RADOVI" />
                 </div>
                 <div>
-                    <img className="w-20" src="/src/assets/movement_logo.svg" />
+                    <img className="w-20" src={MovementDog} />
                 </div>
                 <div id={`arts-button-3`}>
                     <CircleLink url="authors" label="AUTORI" />
@@ -33,7 +33,7 @@ export const MovementPage: FC = () => {
             </div>
         </div>
         <div className="flex mb-4 opacity-100">
-            <img className="w-4 transform -scale-x-[1]" src="/src/assets/movement_logo.svg" />
+            <img className="w-4 transform -scale-x-[1]" src={MovementDog} />
             <p className="pl-2 text-xs">Sobakaisti &nbsp;©&nbsp; 2023</p>
         </div>
     </div>;

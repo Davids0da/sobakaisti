@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { HomeButton } from "../HomeButton";
 import { Link, useNavigate } from "react-router-dom";
+import LiteroGameLogo from "/src/assets/literogame_logo.svg";
+import MovementLogo from "/src/assets/movement_logo.svg";
 
 export const GamePage: FC = () => {
 
@@ -25,7 +27,7 @@ export const GamePage: FC = () => {
                 </Link>
             </div>
             <div className="items-center flex">
-                <img className="w-20 xs:w-12" src="/src/assets/literogame_logo.svg" />
+                <img className="w-20 xs:w-12" src={LiteroGameLogo} />
             </div>
             <div>
                 <Link to={`txt`}>
@@ -45,7 +47,7 @@ export const GamePage: FC = () => {
             </div>
         </div>
         <div className="flex justify-center mb-4 opacity-70">
-            <img className="w-4 transform -scale-x-100" src="./src/assets/movement_logo.svg" />
+            <img className="w-4 transform -scale-x-100" src={MovementLogo} />
             <p className="pl-2 text-xs ">Sobakaisti &nbsp;©&nbsp; 2023</p>
         </div>
     </div>;

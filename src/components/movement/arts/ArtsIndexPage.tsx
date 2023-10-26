@@ -4,6 +4,8 @@ import { CircleLink } from "../CircleLink";
 import { CircleWithoutLink } from "../CircleWithoutLink";
 import { ButtonWithIcon } from "./components/ButtonWithIcon";
 import { MovementFooter } from "../MovementFooter";
+import MovementDog from "/src/assets/movement_logo.svg";
+
 export const ArtsIndexPage: FC = () => {
     return <div className="flex flex-col justify-between h-screen items-center">
         <HomeButton url="/" />
@@ -32,7 +34,7 @@ export const ArtsIndexPage: FC = () => {
             </div>
         </div>
         <div className="flex mb-4 opacity-70">
-            <img className="w-4 transform -scale-x-100" src="/src/assets/movement_logo.svg" />
+            <img className="w-4 transform -scale-x-100" src={MovementDog} />
             <p className="pl-2 text-xs">Sobakaisti &nbsp;©&nbsp; 2023</p>
         </div>
     </div>;

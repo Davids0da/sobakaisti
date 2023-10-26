@@ -1,13 +1,14 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { SocialIcons } from "./SocialIcons";
+import MovementLogo from "/src/assets/movement_logo.svg";
 
 export const MovementFooter: FC = () => {
     return <footer className="p-4 mt-16 bg-white sm:p-6">
         <div className="md:flex md:justify-between">
             <div className="mb-10 md:mb-0">
                 <a href="/movement" className="flex items-center">
-                    <img src="/src/assets/movement_logo.svg" className="h-24 mr-3" alt="Sobakaisti Logo" />
+                    <img src={MovementLogo} className="h-24 mr-3" alt="Sobakaisti Logo" />
                 </a>
             </div>
             <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-3">
