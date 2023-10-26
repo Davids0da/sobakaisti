@@ -12,7 +12,7 @@ import EventIcon from "/src/assets/pins/event.png";
 import DiceIcon from "/src/assets/pins/dice.png";
 import GameIcon from "/src/assets/pins/game.png";
 import HatIcon from "/src/assets/pins/hat.png";
-import MusicIcon from "/src/assets/pins/music.png";
+import MusicIcon from "/src/assets/pins/music.png"; 
 import PhotoIcon from "/src/assets/pins/photo.png";
 import QuestionIcon from "/src/assets/pins/question.png";
 import SignIcon from "/src/assets/pins/sign.png";
@@ -33,8 +33,6 @@ export const LitteroMapPost: FC = () => {
   const markers = data.attributes.markers.data;
   const selectedMarker = markers.find(marker => marker.id === selectedMarkerId);
 
-  console.log(data.attributes, '2222');
-
   function createMarkup(html: string) {
     const htmlContent = { __html: html };
     const re = /<img src="/gm
@@ -45,7 +43,6 @@ export const LitteroMapPost: FC = () => {
 
   // Markers
   const getMarkerIcon = (label: string) => {
-    console.log(label ,' budalo')
     return new L.Icon({
       iconUrl: `/src/assets/pins/${label}.png`,
       iconSize: [40, 65]
