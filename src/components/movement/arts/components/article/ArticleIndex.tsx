@@ -58,7 +58,7 @@ export const ArticleIndexPage: FC = () => {
                 <button onClick={goBackOnePage}>
                     <div className="hover:scale-110 duration-200 grid place-items-center h-16 w-16 rounded-full ring-2 ring-white border-black border-solid border">
                         <img className="h-8 w-8"
-                            src={`/src/assets/arts/${data.attributes.article_type}.svg`}
+                            src={`/arts/${data.attributes.article_type}.svg`}
                             alt="" />
                     </div>
                 </button>

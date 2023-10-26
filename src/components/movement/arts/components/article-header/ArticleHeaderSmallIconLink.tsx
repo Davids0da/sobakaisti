@@ -13,7 +13,7 @@ export const ArticleHeaderSmallIconLink:FC<ArticleHeaderSmallIconLinkProps>  = (
 
     return <button onClick={goBackToIconPage}>
         <img className="h-6 w-6 hover:scale-[1.2] duration-200"
-             src={`/src/assets/arts/${icon_and_link}.svg`}
+             src={`/arts/${icon_and_link}.svg`}
              alt="" />
     </button>
 };

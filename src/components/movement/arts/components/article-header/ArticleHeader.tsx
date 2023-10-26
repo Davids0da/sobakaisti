@@ -47,7 +47,7 @@ export const ArticleHeader:FC<ArticleHeaderProps>  = ({ type}) => {
                  <div className={`flex justify-center`}>
                      <div className="grid place-items-center h-20 w-20 rounded-full ring-2 ring-white border-black border-solid border">
                         <img className="h-12 w-12"
-                   src={`/src/assets/arts/${currentArticleType}.svg`}
+                   src={`/arts/${currentArticleType}.svg`}
                    alt="" />
                      </div>
                  </div>
