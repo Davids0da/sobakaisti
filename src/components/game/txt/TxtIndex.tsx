@@ -21,16 +21,16 @@ export const TxtIndexPage: FC = () => {
             <div>
                 <Link to={`dnevnik`}>
                     <div className="items-center group align-center flex mr-10 flex-col w-44 h-44 max-[768px]:w-36 bg-contain  bg-[url('/src/assets/clouds/1/3.png')] bg-no-repeat">
-                        <h3 className="bg-gradient-to-r mt-14 max-[768px]:mt-12 group-hover:text-red-500" >
+                        <h4 className="bg-gradient-to-r mt-14 max-[768px]:mt-12 group-hover:text-red-500" >
                             DNEVNIK
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
                 <Link to={`cv`}>
                     <div className="items-center group flex mr-10 flex-col mb-4 w-48 h-48 max-[768px]:w-36 bg-contain bg-[url('/src/assets/clouds/3/3.png')] bg-no-repeat">
-                        <h3 className="mt-16 max-[768px]:mt-12 group-hover:text-red-500" >
+                        <h4 className="mt-16 max-[768px]:mt-12 group-hover:text-red-500" >
                             CV
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
             </div>
@@ -42,16 +42,16 @@ export const TxtIndexPage: FC = () => {
             <div>
                 <Link to={`svastara`}>
                     <div className="items-center group flex ml-10 flex-col mb-4 w-44 h-44 max-[768px]:w-36 bg-contain  bg-[url('/src/assets/clouds/2/3.png')] bg-no-repeat">
-                        <h3 className="mt-16 max-[768px]:mt-12 group-hover:text-red-500" >
+                        <h4 className="mt-16 max-[768px]:mt-12 group-hover:text-red-500" >
                             SVAŠTARA
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
                 <Link to={`random`}>
                     <div className="items-center group flex ml-10 flex-col mb-4 w-44 h-44 max-[768px]:w-36 bg-contain bg-[url('/src/assets/clouds/4/3.png')] bg-no-repeat">
-                        <h3 className="mt-16 max-[768px]:mt-12 group-hover:text-red-500" >
+                        <h4 className="mt-16 max-[768px]:mt-12 group-hover:text-red-500" >
                             X = ?
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
             </div>

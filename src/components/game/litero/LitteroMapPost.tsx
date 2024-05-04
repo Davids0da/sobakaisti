@@ -66,7 +66,7 @@ export const LitteroMapPost: FC = () => {
               setSelectedMarkerId(marker.id)
             },
           }} key={marker.id} icon={getMarkerIcon(marker.attributes.marker_type)} position={[marker.attributes.marker_lat, marker.attributes.marker_lang]}>
-            <Popup><h1>{marker.attributes.title}</h1></Popup>
+            <Popup><h5>{marker.attributes.title}</h5></Popup>
           </Marker>
         )}
       </MapContainer>

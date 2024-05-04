@@ -35,7 +35,7 @@ export const ArtsIndexPage: FC = () => {
         </div>
         <div className="flex mb-4 opacity-70">
             <img className="w-4 transform -scale-x-100" src={MovementDog} />
-            <p className="pl-2 text-xs">Sobakaisti &nbsp;©&nbsp; 2023</p>
+            <p className="pl-2 text-xs">Sobakaisti &nbsp;©&nbsp; 2024</p>
         </div>
     </div>;
 };

@@ -14,7 +14,7 @@ export const ArtTypeIndexPage: FC<ArtTypeIndexPageProps> = ({ type }) => {
     const params = useParams();
     const [sortBy, setSortBy] = useState('createdAt:desc');
 
-    const [visible, setVisible] = useState(4);
+    const [visible, setVisible] = useState(8);
 
     const tagsType = `/articles?filters[tags][name][$contains]=${params.slug}&populate=*&sort=${sortBy}`
     const elseType = `/articles?filters[article_type][$eq]=${type}&populate=*&sort=${sortBy}${params.slug === undefined ? '' : `&filters[user][slug][$eq]=${params.slug}`}`
@@ -41,13 +41,13 @@ export const ArtTypeIndexPage: FC<ArtTypeIndexPageProps> = ({ type }) => {
             <div className="left-1/2 -ml-0.5 w-1 h-4 bg-gray-600 ml-5 mr-5"></div>
             <button onClick={() => setSortBy('views:desc')} className={`flex w-full ${sortBy === 'views:desc' ? 'font-bold' : ''}`}>POPULARNO</button>
         </div>
-        <h1 className="mt-6 px-4">Izdvajamo</h1>
+        <h4 className="mt-6 px-4">Izdvajamo</h4>
         <hr className="mb-6 px-4" />
         <div className="flex px-4 w-full flex-wrap">
             {data?.slice(0, visible).map(article => <ArticleCard article={article} key={article.id} />)}
         </div>
         <div className="flex justify-center">
-            {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još objava</button>}
+            {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Hoću još!</button>}
         </div>
         <MovementFooter />
     </div>;

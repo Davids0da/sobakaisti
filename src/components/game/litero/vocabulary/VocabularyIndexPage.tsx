@@ -1,13 +1,15 @@
-import { FC, useRef, useState, MutableRefObject } from "react";
+import { FC, useRef, useState, MutableRefObject, useEffect } from "react";
 import { GameDogAndSocialIconsHeader } from "../../GameDogAndSocialIconsHeader";
 import useSWR from "swr";
 import { getTagsFetcher } from "../../../../api/api";
 import { GameFooter } from "../../GameFooter";
+import { useParams } from "react-router-dom";
 
 
 export const VocabularyIndexPage: FC = () => {
 
-    const ApiUrl = import.meta.env.VITE_BASE_URL;;
+    const ApiUrl = import.meta.env.VITE_BASE_URL;
+    const params = useParams();
 
     const myRef: MutableRefObject<HTMLHeadingElement | null> = useRef(null);
 
@@ -23,10 +25,25 @@ export const VocabularyIndexPage: FC = () => {
         setTag(letter);
     }
 
+    const filterTagsbyFirstLetter = data?.filter(tagg => tagg && tagg.attributes.name[0].toLowerCase() === tag.toLowerCase());
+
+    useEffect(() => {
+        if (params.slug && data) {
+            const newTag = params.slug?.toString().split('')[0];
+            setTag(newTag);
+            const filterTagsbyFirstLetterUseEffect = data?.filter(tagg => tagg && tagg.attributes.name[0].toLowerCase() === newTag.toLowerCase());
+            const tag = filterTagsbyFirstLetterUseEffect?.find((t)=> {
+               return t.attributes.slug === params.slug
+            })
+            console.log(tag, 'blah', filterTagsbyFirstLetterUseEffect)
+            setTagAbout(tag?.attributes);
+        }
+    }, [params.slug , data])
+
     const setTagAbout = (attributes: any) => {
-        if(!myRef.current) {
+        if (!myRef.current) {
             return null;
-        } 
+        }
         setAbout(attributes.about);
         setTagName(attributes.name);
         window.scrollTo(0, myRef.current.offsetTop - 40);
@@ -40,7 +57,6 @@ export const VocabularyIndexPage: FC = () => {
         return htmlContentRender
     }
 
-    const filterTagsbyFirstLetter = data?.filter(tagg => tagg && tagg.attributes.name[0].toLowerCase() === tag.toLowerCase());
 
     return <div className="bg-white">
         <GameDogAndSocialIconsHeader />
@@ -48,14 +64,14 @@ export const VocabularyIndexPage: FC = () => {
             <h1 className="font-sobakaisti text-center text-3xl mb-16">Rečnik</h1>
             <div className="md:flex xs:flex-col">
                 <div className="w-64 max-[768px]:w-full space-x-2 space-y-2">
-                    {letters.map(letter => <button onClick={() => setTagFirstLetter(letter)} className="font-sobakaisti text-xl ml-2 w-10 h-10 rounded-full 
+                    {letters.map(letter => <button key={letter} onClick={() => setTagFirstLetter(letter)} className="font-sobakaisti text-xl ml-2 w-10 h-10 rounded-full 
                        bg-black hover:bg-red-500 text-white">
                         {letter}
                     </button>)}
                 </div>
                 <div className="ml-10 mt-1 max-[768px]:ml-2 max-[768px]:mt-6">
                     <h1 className="text-2xl font-sobakaisti">Reči:</h1>
-                    {filterTagsbyFirstLetter?.map(tag => <h1 className="hover:text-red-500"><button onClick={() => setTagAbout(tag.attributes)}>{tag.attributes.name}</button></h1>)}
+                    {filterTagsbyFirstLetter?.map(tag => <h1 key={tag.id} className="hover:text-red-500"><button onClick={() => setTagAbout(tag.attributes)}>{tag.attributes.name}</button></h1>)}
                 </div>
                 <div className="ml-10 mt-1 max-[768px]:ml-2 max-[768px]:mt-6">
                     <h1 ref={myRef} className="text-2xl font-sobakaisti">Opis reči: <span className="text-red-500">{tagName}</span> </h1>

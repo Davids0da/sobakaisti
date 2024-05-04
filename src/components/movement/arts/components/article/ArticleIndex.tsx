@@ -33,7 +33,6 @@ export const ArticleIndexPage: FC = () => {
 
     // Multiple images for carousel
     const multipleImagesForCarousel = data.attributes.article_image.data;
-    console.log(multipleImagesForCarousel, 'xD');
 
     // Published date with plugin
     const publishedDate = formatDistance(new Date(data.attributes.publishedAt), new Date(), { addSuffix: true, locale: srLatn })
@@ -77,10 +76,10 @@ export const ArticleIndexPage: FC = () => {
             </div>
             {multipleImagesForCarousel.length === 1 && <img className={`mt-4 md:w-2/3 sm:w-full md:p-0 p-4`} src={ApiUrl + data.attributes.article_image.data[0].attributes.url} />}
             {multipleImagesForCarousel.length !== 1 && <ArticleImageCarousle images={multipleImagesForCarousel} />}
-            <div className={`mt-4 mb-10 w-2/3`}>
+            <div className={`mt-4 mb-10 w-2/3 article-content`}>
                 <div className={`first-letter:float-left first-letter:text-7xl first-letter:pr-4 first-letter:font-black first-letter:text-black`} dangerouslySetInnerHTML={createMarkup()} />
             </div>
-            <div className="text-md mb-10 flex items-center flex-col ">
+            <div className="text-md mb-10 flex article-content items-center flex-col ">
                 {tagsArray.length === 1 && <h4 className={`font-bold pr-2`}>Tag: </h4>}
                 {tagsArray.length !== 1 && <h4 className={`font-bold pr-2`}>Tagovi: </h4>}
                 {tagsArray.map(tagName => <TagsComponent tag={tagName} />)}

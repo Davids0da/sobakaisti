@@ -30,7 +30,7 @@ export const CampaignIndexPage: FC = () => {
             </div>
         </div>
           <div className="flex justify-center">
-            {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još mapa</button>}
+            {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još</button>}
         </div>
         <GameFooter />
     </div>

@@ -92,6 +92,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
                         <Route path="litero-game">
                             <Route index element={<LitteroIndex />} />
                             <Route path="vocabulary" element={<VocabularyIndexPage />} />
+                            <Route path="hashtags">
+                                <Route path={`tags/:slug`} element={<VocabularyIndexPage />} />
+                            </Route>
                             <Route path="new-game" element={<NewGameIndexPage />} />
                             <Route path="game-zone">
                                 <Route index element={<PlayZoneIndexPage type="igrarnik" />} />

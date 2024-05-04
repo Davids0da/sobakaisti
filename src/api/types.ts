@@ -130,6 +130,13 @@ export interface GameArticleAttributeProps {
     type: string;
     short_about: string;
     image: ImageProps;
+    tags: {
+        data: {
+            attributes: {
+                name: string;
+            }
+        }[];
+    }; 
 }
 
 export interface ImageProps {

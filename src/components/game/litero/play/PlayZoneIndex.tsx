@@ -12,7 +12,7 @@ export interface PlayZoneIndexProps {
 
 export const PlayZoneIndexPage: FC<PlayZoneIndexProps> = ({ type }) => {
 
-    const { data, isLoading } = useSWR(`/game-articles?filters[type][$eq]=${type}&populate=*&sort`, getGameArticlesFetcher);
+    const { data, isLoading } = useSWR(`/game-articles?filters[type][$eq]=${type}&populate=*&sort=createdAt:desc`, getGameArticlesFetcher);
 
 
     const [visible, setVisible] = useState(4);
@@ -39,7 +39,7 @@ export const PlayZoneIndexPage: FC<PlayZoneIndexProps> = ({ type }) => {
                 {!isLoading && data?.slice(0, visible).map(data => <GameListItem short_about={data?.attributes.short_about} title={data?.attributes.title} slug={data?.attributes.slug} image_url={data?.attributes.image.data.attributes.url} key={data.id} />)}
             </div>
             <div className="flex justify-center">
-                {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još mapa</button>}
+                {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još</button>}
             </div>
         </div>
         <GameFooter />

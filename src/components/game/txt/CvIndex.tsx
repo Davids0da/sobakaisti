@@ -8,7 +8,6 @@ export const CvIndexPage: FC = () => {
 
     const { data } = useSWR(`/cv`, getCvFetcher);
 
-    console.log(data, 'blabla')
 
     return <div className="bg-white">
         <GameDogAndSocialIconsHeader />

@@ -13,16 +13,16 @@ export const GamePage: FC = () => {
             <div>
                 <Link to={`litero-game`}>
                     <div className="items-center group align-center flex mr-10 flex-col w-44 h-44 max-[768px]:w-36 max-[768px]:h-36  bg-contain bg-[url('/src/assets/clouds/1/2.png')] bg-no-repeat">
-                        <h3 className="bg-gradient-to-r mt-12 mr-2 group-hover:text-red-500 max-[768px]:mt-10">
+                        <h4 className="bg-gradient-to-r mt-12 mr-2 group-hover:text-red-500 max-[768px]:mt-10">
                             LITERO-IGRA
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
                 <Link  to={`shop`}>
                     <div className="items-center group flex mr-10 flex-col mb-4 w-44 h-44 max-[768px]:w-36 max-[768px]:h-36 bg-contain bg-[url('/src/assets/clouds/3/2.png')] bg-no-repeat">
-                        <h3 className="mt-14 group-hover:text-red-500">
+                        <h4 className="mt-14 group-hover:text-red-500">
                             DUĆAN
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
             </div>
@@ -32,16 +32,16 @@ export const GamePage: FC = () => {
             <div>
                 <Link to={`txt`}>
                     <div className="items-center group flex ml-10 flex-col mb-4 w-44 h-44 max-[768px]:w-36 max-[768px]:h-36 bg-contain  bg-[url('/src/assets/clouds/2/2.png')] bg-no-repeat">
-                        <h3 className="m-auto group-hover:text-red-500" >
+                        <h4 className="m-auto group-hover:text-red-500" >
                             TXT
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
                 <Link to={`contact`}>
                     <div className="items-center group flex ml-10 flex-col mb-4 w-44 h-44 max-[768px]:w-36 max-[768px]:h-36 bg-contain bg-[url('/src/assets/clouds/4/2.png')] bg-no-repeat">
-                        <h3 className="m-auto group-hover:text-red-500" >
+                        <h4 className="m-auto group-hover:text-red-500" >
                             KONTAKT
-                        </h3>
+                        </h4>
                     </div>
                 </Link>
             </div>
