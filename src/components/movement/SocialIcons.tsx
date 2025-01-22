@@ -27,11 +27,11 @@ export const SocialIcons: FC = () => {
                     alt="" />
             </div>
         </button>}
-        {switcher && <SocialIcon image_src={FacebookMono} url="https://www.facebook.com/sobakaisti/" />}
-        {switcher && <SocialIcon image_src={InstagramIcon} url="https://www.instagram.com/sobakaisti/" />}
-        {switcher && <SocialIcon image_src={YoutubeIcon} url="https://www.youtube.com/channel/UCU-ETcRIXF029UZXLeo7aNQ" />}
-        {switcher && <SocialIcon image_src={TwitterIcon} url="https://mobile.twitter.com/sobakaisti" />}
-        {switcher && <SocialIcon image_src={BuyMeCoffee} url="https://www.buymeacoffee.com/sobakaisti" />}
+        {switcher && <SocialIcon image_src={BuyMeCoffee} url="https://ko-fi.com/sobakaisti" />}
+        {switcher && <SocialIcon image_src={InstagramIcon} url="https://patreon.com/Sobakaisti" />}
+        {switcher && <SocialIcon image_src={TwitterIcon} url="https://discord.gg/24ZAUr7Q" />}
+        {switcher && <SocialIcon image_src={FacebookMono} url="https://linktr.ee/sobakaisti" />}
+     
     </div>
 };
 
