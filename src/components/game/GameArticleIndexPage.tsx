@@ -5,6 +5,7 @@ import { getGameArticleFetcher } from "../../api/api";
 import { GameDogAndSocialIconsHeader } from "./GameDogAndSocialIconsHeader";
 import { GameFooter } from "./GameFooter";
 import { GameTagsComponent } from "../movement/arts/components/article/GameTags";
+import { ArticleShareButton } from "../movement/arts/components/article/ArticleShareButton";
 
 export const GameArticleIndexPage: FC = () => {
     const params = useParams();
@@ -50,6 +51,11 @@ export const GameArticleIndexPage: FC = () => {
         <div className={`px-4 mt-4 mb-10 sm:hidden article-content`}>
             <div dangerouslySetInnerHTML={createMarkup()} />
         </div>
+        <div className="grid  place-items-center"> 
+        <ArticleShareButton></ArticleShareButton>
+        </div>
+
+
 
         <GameFooter />
     </div>

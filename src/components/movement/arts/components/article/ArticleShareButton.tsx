@@ -27,8 +27,9 @@ export const ArticleShareButton: FC = () => {
 
 
             <a onClick={handleCopyUrl} href="javascript:void(0)">
-                <div className="hover:scale-110 duration-200 grid place-items-center h-10 w-10 mb-6 rounded-full ring-2 ring-white border-black border-solid border">
-                    <img className="h-4 w-4" src={ShareSVG} alt="Share" />
+                <div className="hover:scale-110 duration-200 grid place-items-center w-40 mb-6 rounded-full ring-2 ring-white border-black border-solid border">
+                    <h4 className='font-sobakaisti'>ШИРИ ДАЉЕ</h4>
+                    <img className="h-4 w-4 mb-1" src={ShareSVG} alt="Share" />
                 </div>
             </a>
         </div>
