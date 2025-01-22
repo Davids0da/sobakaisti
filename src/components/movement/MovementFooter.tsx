@@ -52,16 +52,13 @@ export const MovementFooter: FC = () => {
                         <li className="mb-4">
                             <Link className="hover:underline" to={`/movement/contact`}>Kontakt forma</Link>
                         </li>
-                        <li>
-                            <a href="mailto:sobaka.stefan@gmail.com" className="hover:underline">sobaka.stefan@gmail.com</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center">© 2023 <a href="/movement"
+            <span className="text-sm text-gray-500 sm:text-center">© 2025 <a href="/movement"
                 className="hover:underline">Sobakaisti</a>. All Rights Reserved.
             </span>
             <span className="max-[768px]:hidden">
