@@ -12,6 +12,7 @@ import { ArticleImageCarousle } from "./ArticleImageCarousel";
 import { Comments } from "./Comments";
 import { PostComment } from "./PostComment";
 import { TagsComponent } from "./Tags";
+import { ArticleShareButton } from "./ArticleShareButton";
 
 
 export const ArticleIndexPage: FC = () => {
@@ -79,6 +80,7 @@ export const ArticleIndexPage: FC = () => {
             <div className={`mt-4 mb-10 w-2/3 article-content`}>
                 <div className={`first-letter:float-left first-letter:text-7xl first-letter:pr-4 first-letter:font-black first-letter:text-black`} dangerouslySetInnerHTML={createMarkup()} />
             </div>
+            <ArticleShareButton></ArticleShareButton>
             <div className="text-md mb-10 flex article-content items-center flex-col ">
                 {tagsArray.length === 1 && <h4 className={`font-bold pr-2`}>Tag: </h4>}
                 {tagsArray.length !== 1 && <h4 className={`font-bold pr-2`}>Tagovi: </h4>}
