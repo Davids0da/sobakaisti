@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import { SocialIcon } from "./SocialIcon";
 import BuyMeCoffee from "/src/assets/buymecfe.svg";
 import TwitterIcon from "/src/assets/twitter-mono.svg";
-import YoutubeIcon from "/src/assets/youtube-play-mono.svg";
 import InstagramIcon from "/src/assets/instagram-mono.svg";
 import FacebookMono from "/src/assets/facebook-mono.svg";
 import SocialIconSVG from "/src/assets/social.svg";
