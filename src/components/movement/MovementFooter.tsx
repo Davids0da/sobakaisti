@@ -13,7 +13,7 @@ export const MovementFooter: FC = () => {
             </div>
             <div className="grid grid-cols-1 gap-8 sm:gap-6 sm:grid-cols-3">
                 <div>
-                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Radovi</h2>
+                    <h2 className="font-sobakaisti mb-6 text-lg font-semibold text-gray-900 uppercase">Radovi</h2>
                     <ul className="text-gray-600">
                         <li className="mb-4">
                             <Link className="hover:underline" to={`/movement/arts/music`}>Muzika</Link>
@@ -28,12 +28,12 @@ export const MovementFooter: FC = () => {
                             <Link className="hover:underline" to={`/movement/arts/video`}>Video</Link>
                         </li>
                         <li>
-                            <Link className="hover:underline" to={`/movement/arts/music`}>Music</Link>
+                            <Link className="hover:underline" to={`/movement/arts/paintings`}>Umetnine</Link>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Posetite</h2>
+                    <h2 className="font-sobakaisti mb-6 text-lg font-semibold text-gray-900 uppercase">Posetite</h2>
                     <ul className="text-gray-600">
                         <li className="mb-4">
                             <Link className="hover:underline" to={`/movement/manifesto`}>Manifest</Link>
@@ -47,7 +47,7 @@ export const MovementFooter: FC = () => {
                     </ul>
                 </div>
                 <div>
-                    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Kontakt</h2>
+                    <h2 className="font-sobakaisti mb-6 text-lg font-semibold text-gray-900 uppercase">Kontakt</h2>
                     <ul className="text-gray-600 ">
                         <li className="mb-4">
                             <Link className="hover:underline" to={`/movement/contact`}>Kontakt forma</Link>

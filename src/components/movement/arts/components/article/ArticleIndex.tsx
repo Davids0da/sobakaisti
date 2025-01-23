@@ -66,7 +66,7 @@ export const ArticleIndexPage: FC = () => {
                     className="font-semibold -top-4 flex justify-center text-xs left-12 absolute text-cyan-600  w-10 h-10 bg-white border border-cyan-600 rounded-full"><h6 className={`m-auto`}>{generateInitials(data.attributes.user.data.attributes)}</h6>
                 </span>
             </div>
-            <h1 className={`text-3xl text-bold mt-8 px-4 mb-2`}>{data.attributes.title}</h1>
+            <h1 className={`font-sobakaisti text-3xl text-bold mt-8 px-4 mb-2`}>{data.attributes.title}</h1>
             <div className={`flex items-center`}>
                 <span
                     className="font-semibold flex justify-center mr-2 text-xs left-12 w-10 h-10 bg-white border border-cyan-600 rounded-full"><h6 className={`m-auto`}>{generateInitials(data.attributes.user.data.attributes)}</h6>

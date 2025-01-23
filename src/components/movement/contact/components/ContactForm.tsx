@@ -133,7 +133,7 @@ export const ContactForm: FC<ContactFormProps> = ({ selectedUserId }) => {
                     />
                 </div>
             </div>
-            <button type="submit" className="bg-cyan-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-4">
+            <button type="submit" className="font-sobakaisti bg-cyan-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded mt-4">
                 {status}
             </button>
         </form>

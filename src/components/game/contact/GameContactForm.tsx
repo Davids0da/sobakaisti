@@ -106,7 +106,7 @@ export const GameContactForm: FC<ContactFormProps> = () => {
                     />
                 </div>
             </div>
-            <button type="submit" className="bg-green-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">
+            <button type="submit" className="font-sobakaisti bg-green-800 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">
                 {status}
             </button>
         </form>

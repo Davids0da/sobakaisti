@@ -16,7 +16,7 @@ export const ArticleCard: FC<ArticleInCardProps> = ({ article }) => {
             <img className={`w-full object-cover`} src={ApiUrl + article.attributes.article_image.data[0].attributes.url} />
         </Link>
         <div className="p-4 w-3/5 flex flex-col">
-            <h3 className="mb-2 text-xl font-bold tracking-tight text-gray-900"><Link to={`/movement/articles/${article.attributes.slug}`}>{article.attributes.title}</Link></h3>
+            <h3 className="font-sobakaisti mb-2 text-xl font-bold tracking-tight text-gray-900"><Link to={`/movement/articles/${article.attributes.slug}`}>{article.attributes.title}</Link></h3>
             <p className="mb-5 text-sm font-light dark:text-gray-400  truncate ...">{article.attributes.short_about}</p>
             <div className="flex justify-between items-center mt-auto">
                 <div className="flex items-center">
