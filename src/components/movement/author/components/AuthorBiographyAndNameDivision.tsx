@@ -13,6 +13,12 @@ interface UserProps232 {
 
 export const AuthorBiographyAndNameDivision: FC<UserProps232> = ({ user }) => {
     console.log(user);
+
+    const formatDate = (dateString: string): string => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('de-DE'); // German format: DD.MM.YYYY
+    };
+    
     return <div className='mt-10 flex flex-col place-items-center'>
         <div className='rounded-xl flex justify-center w-80 h-16 bg-amber-100 place-items-center shadow-lg'>
             <h1 className="font-bold"> {user.first_name + ` ` + user.last_name} </h1>
@@ -22,7 +28,8 @@ export const AuthorBiographyAndNameDivision: FC<UserProps232> = ({ user }) => {
             </p>
             <p className=""> {user.birth_location}
             </p>
-            <p className=""> {user.date_of_birth}
+            <br></br>
+            <p className=""> {formatDate(user.date_of_birth) + '.'}
             </p>
             <div className="flex space-x-2 mt-4">
                 {user.soc_instagram != null && (
