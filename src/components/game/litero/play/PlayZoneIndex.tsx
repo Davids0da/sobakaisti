@@ -51,7 +51,7 @@ export const PlayZoneIndexPage: FC<PlayZoneIndexProps> = ({ type }) => {
                         ))}
             </div>
             <div className="flex justify-center">
-                {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još</button>}
+                {visible < data?.length && <button className="mt-4 border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još</button>}
             </div>
         </div>
         <GameFooter />
