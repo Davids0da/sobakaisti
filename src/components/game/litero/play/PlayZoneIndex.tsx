@@ -25,7 +25,7 @@ export const PlayZoneIndexPage: FC<PlayZoneIndexProps> = ({ type }) => {
         type = 'svaštara'
     }
 
-    if(!data){
+    if (!data) {
         return null;
     }
 
@@ -36,7 +36,19 @@ export const PlayZoneIndexPage: FC<PlayZoneIndexProps> = ({ type }) => {
             <h1 className="font-sobakaisti text-center text-3xl mb-16">{type}</h1>
             {isLoading && <Loader />}
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                {!isLoading && data?.slice(0, visible).map(data => <GameListItem short_about={data?.attributes.short_about} title={data?.attributes.title} slug={data?.attributes.slug} image_url={data?.attributes.image.data.attributes.url} key={data.id} />)}
+                {!isLoading &&
+                    data
+                        ?.filter((item) => item?.attributes?.hidden === false) // Client-side filter for hidden === false
+                        .slice(0, visible)
+                        .map((data) => (
+                            <GameListItem
+                                short_about={data?.attributes.short_about}
+                                title={data?.attributes.title}
+                                slug={data?.attributes.slug}
+                                image_url={data?.attributes.image.data.attributes.url}
+                                key={data.id}
+                            />
+                        ))}
             </div>
             <div className="flex justify-center">
                 {visible < data?.length && <button className="border-2 p-2 border-black" onClick={showMoreItems}>Učitaj još</button>}

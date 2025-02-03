@@ -128,6 +128,7 @@ export interface GameArticleAttributeProps {
     about: string;
     slug: string;
     type: string;
+    hidden: boolean;
     short_about: string;
     image: ImageProps;
     tags: {
