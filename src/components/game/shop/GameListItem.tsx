@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 interface GameListItemsProps {
     image_url: string,
     title: string,
+    image: {
+        data: {
+            attributes: {
+                url: string;
+            }
+        }
+    }
     short_about: string,
     slug: string
 }

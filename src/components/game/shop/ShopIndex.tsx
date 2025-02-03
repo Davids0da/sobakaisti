@@ -10,7 +10,7 @@ export const ShopIndexPage: FC = () => {
     const { data } = useSWR(`/products?populate=*`, getProductsFetcher);
 
 
-    console.log(data , "blato")
+    console.log(data, "blato")
     // Filter out expired products
     const filteredDataExpiredProducts = data?.filter(data => new Date(data.attributes.expiration_date) > new Date());
 
@@ -32,11 +32,12 @@ export const ShopIndexPage: FC = () => {
         <GameDogAndSocialIconsHeader />
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
             <h1 className="font-sobakaisti text-center text-3xl mb-16">Dućan</h1>
+            <h1 className="text-center font-sobakaisti text-red-500 text-center text-3xl mb-16">Uskoro!</h1>
             {!isDayTime && nightProducts && <h1 className="font-sobakaisti text-red-500 text-center text-3xl mb-16">Trenutno nema aktivnih proizvoda!</h1>}
             {isDayTime && !dayProducts && <h1 className="font-sobakaisti text-red-500 text-center text-3xl mb-16">Trenutno nema aktivnih proizvoda!</h1>}
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                {isDayTime && dayProducts?.map(product => <GameListItem short_about={product.attributes.short_about} title={product.attributes.title} slug={product.attributes.slug} image_url={product.attributes.image.data.attributes.url} key={product.id} />)}
-                {!isDayTime && nightProducts?.map(product => <GameListItem short_about={product.attributes.short_about} title={product.attributes.title} slug={product.attributes.slug} image_url={product.attributes.image.data.attributes.url} key={product.id} />)}
+                {/* {isDayTime && dayProducts?.map(product => <GameListItem short_about={product.attributes.short_about} title={product.attributes.title} slug={product.attributes.slug} image_url={product.attributes.image.data.attributes.url} key={product.id} />)}
+                {!isDayTime && nightProducts?.map(product => <GameListItem short_about={product.attributes.short_about} title={product.attributes.title} slug={product.attributes.slug} image_url={product.attributes.image.data.attributes.url} key={product.id} />)} */}
             </div>
         </div>
         <GameFooter />
