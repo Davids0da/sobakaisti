@@ -1,16 +1,11 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 interface GameListItemsProps {
     image_url: string,
     title: string,
-    image: {
-        data: {
-            attributes: {
-                url: string;
-            }
-        }
-    }
     short_about: string,
     slug: string
 }
@@ -21,7 +16,8 @@ export const GameListItem: FC<GameListItemsProps> = ({ image_url, title, short_a
 
     return <Link to={slug}><div className="group relative">
         <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-            <img src={ApiUrl + image_url} alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+            <LazyLoadImage src={ApiUrl + image_url} alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+
         </div>
         <div className="mt-4 flex justify-between">
             <div>
