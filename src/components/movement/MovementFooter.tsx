@@ -4,6 +4,9 @@ import { SocialIcons } from "./SocialIcons";
 import MovementLogo from "/src/assets/movement_logo.svg";
 
 export const MovementFooter: FC = () => {
+
+    const currentYear: number = new Date().getFullYear();
+
     return <footer className="p-4 mt-16 bg-white sm:p-6">
         <div className="md:flex md:justify-between">
             <div className="mb-10 md:mb-0">
@@ -58,7 +61,7 @@ export const MovementFooter: FC = () => {
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center">© 2025 <a href="/movement"
+            <span className="text-sm text-gray-500 sm:text-center">© {currentYear} <a href="/movement"
                 className="hover:underline">Sobakaisti</a>. All Rights Reserved.
             </span>
             <span className="max-[768px]:hidden">

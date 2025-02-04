@@ -4,6 +4,9 @@ import { SocialIcons } from "../movement/SocialIcons";
 import LiteroGameLogo from "/src/assets/literogame_logo.svg"
 
 export const GameFooter: FC = () => {
+
+    const currentYear: number = new Date().getFullYear();
+
     return <footer className="p-4 md:mt-16 sm:mt-2 bg-white sm:p-6">
         <div className="md:flex md:justify-between">
             <div className="mb-10 md:mb-0 sm:hidden">
@@ -49,9 +52,9 @@ export const GameFooter: FC = () => {
                         <li className="mb-4">
                             <Link className="hover:underline" to={`/game/contact`}>Kontakt forma</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <a href="mailto:sobaka.stefan@gmail.com" className="hover:underline">sobaka.stefan@gmail.com</a>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
@@ -63,7 +66,7 @@ export const GameFooter: FC = () => {
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto  lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-            <span className="text-sm text-gray-500 sm:text-center">© 2023 <a href="/movement"
+            <span className="text-sm text-gray-500 sm:text-center">© {currentYear} <a href="/movement"
                 className="hover:underline">Sobakaisti</a>. All Rights Reserved.
             </span>
             <span className="max-[768px]:hidden">
