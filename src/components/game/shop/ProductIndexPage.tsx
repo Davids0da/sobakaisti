@@ -11,7 +11,7 @@ export const ProductIndexPage: FC = () => {
     const params = useParams();
     const ApiUrl = import.meta.env.VITE_BASE_URL;
 
-    const { data } = useSWR(`/products/${params.slug}?populate=*`, getProductFetcher);
+    const { data } = useSWR<any>(`/products/${params.slug}?populate=*`, getProductFetcher);
     if (!data) {
         return null
     }
