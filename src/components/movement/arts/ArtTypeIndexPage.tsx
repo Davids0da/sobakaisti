@@ -34,7 +34,9 @@ export const ArtTypeIndexPage: FC<ArtTypeIndexPageProps> = ({ type }) => {
     return <div>
         <MovementDogAndSocialIconsHeader />
         {type === `tags` && <div className={`flex justify-center w-full mt-10`}><h1 className={`font-bold text-2xl`}>#{params.slug}</h1></div>}
+        <div className="h-32">
         {artTypes.find((typ) => typ.includes(type)) && <ArticleHeader type={type} />}
+        </div>
         {type === `publications` && <div className={`flex justify-center w-full mt-10`}><h1 className={`font-bold text-2xl`}>IZDANJA</h1></div>}
         <div className="flex items-center w-full mt-10">
             <button onClick={() => setSortBy('createdAt:desc')} className={`flex justify-end w-full ${sortBy === 'createdAt:desc' ? 'font-bold' : ''}`}>HRONOLOŠKI</button>
