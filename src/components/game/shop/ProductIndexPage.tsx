@@ -37,7 +37,7 @@ export const ProductIndexPage: FC = () => {
         <h1 className="font-sobakaisti text-center text-3xl mt-16 mb-16">{data.attributes.title}</h1>
         <div className="flex px-4">
             <div className="min-h-80 aspect-w-1 flex aspect-h-1 overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
-                <img src={ApiUrl + data.attributes.image.data[0].attributes.url} alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
+                <img src={ApiUrl + data.attributes.image.data.attributes.url} alt="Front of men&#039;s Basic Tee in black." className="h-full w-full object-cover object-center lg:h-full lg:w-full" />
             </div>
             <div className={`ml-10 mb-10 w-2/3 max-[768px]:hidden`}>
                 <div dangerouslySetInnerHTML={createMarkup()} />
