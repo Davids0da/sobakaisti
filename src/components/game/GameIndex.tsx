@@ -6,7 +6,7 @@ import MovementLogo from "/src/assets/movement_logo.svg";
 
 export const GamePage: FC = () => {
 
-
+    const currentYear: number = new Date().getFullYear();
     return <div className="flex flex-col justify-between h-screen items-center">
         <HomeButton url="/" />
         <div className="flex font-sobakaisti text-xl">
@@ -18,7 +18,7 @@ export const GamePage: FC = () => {
                         </h4>
                     </div>
                 </Link>
-                <Link  to={`shop`}>
+                <Link to={`shop`}>
                     <div className="items-center group flex mr-10 flex-col mb-4 w-44 h-44 max-[768px]:w-36 max-[768px]:h-36 bg-contain bg-[url('/src/assets/clouds/3/2.png')] bg-no-repeat">
                         <h4 className="mt-14 group-hover:text-red-500">
                             DUĆAN
@@ -48,7 +48,7 @@ export const GamePage: FC = () => {
         </div>
         <div className="flex justify-center mb-4 opacity-70">
             <img className="w-4 transform -scale-x-100" src={MovementLogo} />
-            <p className="pl-2 text-xs ">Sobakaisti &nbsp;©&nbsp; 2023</p>
+            <p className="pl-2 text-xs ">Sobakaisti &nbsp;©&nbsp; {currentYear}</p>
         </div>
     </div>;
 }

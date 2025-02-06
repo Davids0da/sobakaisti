@@ -13,6 +13,8 @@ export const TxtIndexPage: FC = () => {
         navigate(`/game`);
     }
 
+    const currentYear: number = new Date().getFullYear();
+
     return <div className="flex flex-col justify-between h-screen items-center">
         <div className="w-full">
             <GameDogAndSocialIconsHeader />
@@ -58,7 +60,7 @@ export const TxtIndexPage: FC = () => {
         </div>
         <div className="flex justify-center mb-4 opacity-70">
             <img className="w-4 transform -scale-x-100" src={MovementLogo} />
-            <p className="pl-2 text-xs ">Sobakaisti &nbsp;©&nbsp; 2023</p>
+            <p className="pl-2 text-xs ">Sobakaisti &nbsp;©&nbsp; {currentYear}</p>
         </div>
     </div>;
 }

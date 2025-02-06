@@ -6,6 +6,8 @@ import MovementDog from "/src/assets/movement_logo.svg";
 
 export const MovementPage: FC = () => {
 
+    const currentYear: number = new Date().getFullYear();
+
     return <div className="flex flex-col justify-between h-screen items-center overflow-y-hidden">
         <HomeButton url="/" />
         <div className={`flex flex-col items-center`}>
@@ -34,7 +36,7 @@ export const MovementPage: FC = () => {
         </div>
         <div className="flex mb-4 opacity-100">
             <img className="w-4 transform -scale-x-[1]" src={MovementDog} />
-            <p className="pl-2 text-xs">Sobakaisti &nbsp;©&nbsp; 2023</p>
+            <p className="pl-2 text-xs">Sobakaisti &nbsp;©&nbsp; {currentYear}</p>
         </div>
     </div>;
 };
