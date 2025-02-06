@@ -516,6 +516,6 @@ a:hover {
     }
 }
 
-#vocabulary-scroll {
+#vocabulary-scroll , #littero-smooth {
     scroll-behavior: smooth !important;
   }

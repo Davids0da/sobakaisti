@@ -12,7 +12,7 @@ import EventIcon from "/pins/event.png";
 import DiceIcon from "/pins/dice.png";
 import GameIcon from "/pins/game.png";
 import HatIcon from "/pins/hat.png";
-import MusicIcon from "/pins/music.png"; 
+import MusicIcon from "/pins/music.png";
 import PhotoIcon from "/pins/photo.png";
 import QuestionIcon from "/pins/question.png";
 import SignIcon from "/pins/sign.png";
@@ -49,7 +49,7 @@ export const LitteroMapPost: FC = () => {
     })
   }
 
-  return <div>
+  return <div id="littero-smooth">
     <GameDogAndSocialIconsHeader />
     <div className="mt-10 mx-4 mb-6">
       <div className="text-center mb-4">
@@ -64,6 +64,11 @@ export const LitteroMapPost: FC = () => {
           <Marker eventHandlers={{
             click: (e) => {
               setSelectedMarkerId(marker.id)
+              window.scrollTo({
+                top: 680,
+                behavior: "smooth"
+              })
+              
             },
           }} key={marker.id} icon={getMarkerIcon(marker.attributes.marker_type)} position={[marker.attributes.marker_lat, marker.attributes.marker_lang]}>
             <Popup><h5>{marker.attributes.title}</h5></Popup>
