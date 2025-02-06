@@ -32,13 +32,13 @@ export const VocabularyIndexPage: FC = () => {
             const newTag = params.slug?.toString().split('')[0];
             setTag(newTag);
             const filterTagsbyFirstLetterUseEffect = data?.filter(tagg => tagg && tagg.attributes.name[0].toLowerCase() === newTag.toLowerCase());
-            const tag = filterTagsbyFirstLetterUseEffect?.find((t)=> {
-               return t.attributes.slug === params.slug
+            const tag = filterTagsbyFirstLetterUseEffect?.find((t) => {
+                return t.attributes.slug === params.slug
             })
             console.log(tag, 'blah', filterTagsbyFirstLetterUseEffect)
             setTagAbout(tag?.attributes);
         }
-    }, [params.slug , data])
+    }, [params.slug, data])
 
     const setTagAbout = (attributes: any) => {
         if (!myRef.current) {
@@ -46,7 +46,10 @@ export const VocabularyIndexPage: FC = () => {
         }
         setAbout(attributes.about);
         setTagName(attributes.name);
-        window.scrollTo(0, myRef.current.offsetTop - 40);
+        window.scrollTo({
+            top: myRef.current.offsetTop - 40,
+            behavior: 'smooth'
+        });
     }
 
     function createMarkup(html: string) {
