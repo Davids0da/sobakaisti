@@ -95,7 +95,7 @@ export const ArtTypeIndexPage: FC<ArtTypeIndexPageProps> = ({ type }) => {
             <div className="flex justify-center">
                 {visible < allData.length && (
                     <button className="border-2 p-2 border-black" onClick={showMoreItems}>
-                        Hoću jošssss!
+                        Hoću još!
                     </button>
                 )}
             </div>
