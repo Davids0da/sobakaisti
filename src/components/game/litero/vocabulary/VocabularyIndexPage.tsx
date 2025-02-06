@@ -63,7 +63,7 @@ export const VocabularyIndexPage: FC = () => {
 
     return <div className="bg-white">
         <GameDogAndSocialIconsHeader />
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+        <div id="vocabulary-scroll" className="mx-auto max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
             <h1 className="font-sobakaisti text-center text-3xl mb-16">Rečnik</h1>
             <div className="md:flex xs:flex-col">
                 <div className="w-64 max-[768px]:w-full space-x-2 space-y-2">

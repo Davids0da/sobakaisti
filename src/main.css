@@ -516,6 +516,6 @@ a:hover {
     }
 }
 
-html {
+#vocabulary-scroll {
     scroll-behavior: smooth !important;
   }
