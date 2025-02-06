@@ -38,13 +38,11 @@ export const ArtTypeIndexPage: FC<ArtTypeIndexPageProps> = ({ type }) => {
         {artTypes.find((typ) => typ.includes(type)) && <ArticleHeader type={type} />}
         </div>
         {type === `publications` && <div className={`flex justify-center w-full mt-10`}><h1 className={`font-bold text-2xl`}>IZDANJA</h1></div>}
-        <div className="flex items-center w-full mt-10">
+        <div className="flex items-center w-full mt-10 mb-10">
             <button onClick={() => setSortBy('createdAt:desc')} className={`flex justify-end w-full ${sortBy === 'createdAt:desc' ? 'font-bold' : ''}`}>HRONOLOŠKI</button>
             <div className="left-1/2 -ml-0.5 w-1 h-4 bg-gray-600 ml-5 mr-5"></div>
             <button onClick={() => setSortBy('views:desc')} className={`flex w-full ${sortBy === 'views:desc' ? 'font-bold' : ''}`}>POPULARNO</button>
         </div>
-        <h4 className="mt-6 px-4">Izdvajamo</h4>
-        <hr className="mb-6 px-4" />
         <div className="flex px-4 w-full flex-wrap">
             {data?.slice(0, visible).map(article => <ArticleCard article={article} key={article.id} />)}
         </div>

@@ -78,7 +78,7 @@ export const ArticleIndexPage: FC = () => {
             {multipleImagesForCarousel.length === 1 && <img className={`mt-4 md:w-2/3 sm:w-full md:p-0 p-4`} src={ApiUrl + data.attributes.article_image.data[0].attributes.url} />}
             {multipleImagesForCarousel.length !== 1 && <ArticleImageCarousle images={multipleImagesForCarousel} />}
             <div className={`mt-4 mb-10 w-2/3 article-content`}>
-                <div className={`first-letter:float-left first-letter:text-7xl first-letter:pr-4 first-letter:font-black first-letter:text-black`} dangerouslySetInnerHTML={createMarkup()} />
+                <div className={``} dangerouslySetInnerHTML={createMarkup()} />
             </div>
             <ArticleShareButton></ArticleShareButton>
             <div className="text-md mb-10 flex article-content items-center flex-col ">
