@@ -14,6 +14,7 @@ export const PlayZoneIndexPage: FC<PlayZoneIndexProps> = ({ type }) => {
 
     const { data } = useSWR(`/game-articles?filters[type][$eq]=${type}&populate=*&sort=createdAt:desc`, getGameArticlesFetcher);
 
+    console.log(data + 'haha');
 
     const [visible, setVisible] = useState(4);
 
