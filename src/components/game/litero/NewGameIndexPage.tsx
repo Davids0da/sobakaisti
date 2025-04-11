@@ -18,6 +18,7 @@ export const NewGameIndexPage: FC = () => {
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
+            event.preventDefault();
             // Trim the input value and check if it's not blank
             const trimmedInput = inputValue.trim();
             
