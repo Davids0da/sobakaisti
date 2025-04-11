@@ -1,52 +1,55 @@
 import { FC, useState } from "react";
-import { useParams } from "react-router-dom";
-import useSWR from "swr";
 import { useNavigate } from "react-router-dom";
+import useSWR from "swr";
 import { GameDogAndSocialIconsHeader } from "../GameDogAndSocialIconsHeader";
 import { GameFooter } from "../GameFooter";
 import { getGameArticlesFetcher } from "../../../api/api";
 
 export const NewGameIndexPage: FC = () => {
-    const [inputValue, setInputValue] = useState("");
-    const navigate = useNavigate();
-    const params = useParams();
+  const [inputValue, setInputValue] = useState("");
+  const navigate = useNavigate();
 
-    const type = "igrarnik";
-    const { data } = useSWR(`/game-articles?filters[type][$eq]=${type}&populate=*&sort=createdAt:desc`, getGameArticlesFetcher);
-    const articleListNames = data?.map(data => data?.attributes.title);
-    console.log(articleListNames)
+  const type = "igrarnik";
+  const { data } = useSWR(
+    `/game-articles?filters[type][$eq]=${type}&populate=*&sort=createdAt:desc`,
+    getGameArticlesFetcher
+  );
+  const articleListNames = data?.map((data) => data?.attributes.title);
 
-    const handleKeyDown = () => {
-        // Trim the input value and check if it's not blank
-        const trimmedInput = inputValue.trim();
+  const handleButtonClick = () => {
+    const trimmedInput = inputValue.trim();
 
-        // If the input is not empty, navigate to the page
-        if (trimmedInput !== "" && articleListNames?.includes(trimmedInput)) {
-            navigate(`/game/litero-game/game-zone/${trimmedInput}`);
-        } else {
-            // Optionally, show some feedback to the user that the input is empty
-            console.log("Input cannot be empty or false!");
-        }
-    };
+    if (trimmedInput && articleListNames?.includes(trimmedInput)) {
+      navigate(`/game/litero-game/game-zone/${trimmedInput}`);
+    } else {
+      console.log("Šifra ne postoji ili je prazna.");
+    }
+  };
 
-    return (
-        <div className="bg-white">
-            <GameDogAndSocialIconsHeader />
-            <div className="mx-auto text-center max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
-                <h1 className="font-sobakaisti text-center text-3xl mb-16">Unesi šifru</h1>
-                <input
-                    className="font-sobakaisti text-orange-600 focus:outline-offset-2 text-2xl border-2 text-center border-black"
-                    name="myInput"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    placeholder="Unesi šifru"
-                />
-                <div className="flex justify-center">
-                    <button className="mt-8 font-sobakaisti border-2 p-2 border-black" onClick={handleKeyDown}>Pronađi skrivenu stranicu</button>
-                </div>
-            </div>
-            <GameFooter />
+  return (
+    <div className="bg-white">
+      <GameDogAndSocialIconsHeader />
+      <div className="mx-auto text-center max-w-2xl py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h1 className="font-sobakaisti text-center text-3xl mb-16">Unesi šifru</h1>
+
+        <input
+          type="text"
+          className="font-sobakaisti text-orange-600 focus:outline-offset-2 text-2xl border-2 text-center border-black"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Unesi šifru"
+        />
+
+        <div className="flex justify-center">
+          <button
+            className="mt-8 font-sobakaisti border-2 p-2 border-black"
+            onClick={handleButtonClick}
+          >
+            Pronađi skrivenu stranicu
+          </button>
         </div>
-    );
+      </div>
+      <GameFooter />
+    </div>
+  );
 };
