@@ -68,7 +68,7 @@ export const NewGameIndexPage: FC = () => {
                         className="mt-8 font-sobakaisti border-2 p-2 border-black"
                         onClick={handleButtonClick}
                     >
-                        Pronađi skrivenu stranicu
+                        PLAY
                     </button>
                 </div>
             </div>
