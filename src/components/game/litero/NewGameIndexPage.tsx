@@ -23,9 +23,10 @@ export const NewGameIndexPage: FC = () => {
 
     if (trimmedInput && articleListNames?.includes(trimmedInput)) {
       navigate(`/game/litero-game/game-zone/${trimmedInput}`);
-      radi = "500";
+      
     } else {
       console.log("Šifra ne postoji ili je prazna.");
+      radi = "500";
     }
   };
 
