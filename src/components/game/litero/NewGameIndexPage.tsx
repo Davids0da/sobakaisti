@@ -19,7 +19,7 @@ export const NewGameIndexPage: FC = () => {
     const handleButtonClick = () => {
         console.log("Button clicked!"); // Debugging line to see if the button click is triggered
 
-        const trimmedInput = inputValue.trim();
+        const trimmedInput = inputValue.trim().toLowerCase();
 
         if (trimmedInput && articleListNames?.includes(trimmedInput)) {
             window.location.href = `/game/litero-game/game-zone/${trimmedInput}`;
