@@ -15,12 +15,15 @@ export const NewGameIndexPage: FC = () => {
     getGameArticlesFetcher
   );
   const articleListNames = data?.map((data) => data?.attributes.title);
+  const timmdedinputz = inputValue.trim();
+  let radi = "";
 
   const handleButtonClick = () => {
     const trimmedInput = inputValue.trim();
 
     if (trimmedInput && articleListNames?.includes(trimmedInput)) {
       navigate(`/game/litero-game/game-zone/${trimmedInput}`);
+      radi = "500";
     } else {
       console.log("Šifra ne postoji ili je prazna.");
     }
@@ -47,6 +50,8 @@ export const NewGameIndexPage: FC = () => {
           >
             Pronađi skrivenu stranicu
           </button>
+          {timmdedinputz}
+          {radi}
         </div>
       </div>
       <GameFooter />
