@@ -22,7 +22,7 @@ export const NewGameIndexPage: FC = () => {
         const trimmedInput = inputValue.trim();
 
         if (trimmedInput && articleListNames?.includes(trimmedInput)) {
-            navigate(`/game/litero-game/game-zone/${trimmedInput}`);
+            window.location.href = `/game/litero-game/game-zone/${trimmedInput}`;
         } else {
             console.log("Šifra ne postoji ili je prazna.");
         }
