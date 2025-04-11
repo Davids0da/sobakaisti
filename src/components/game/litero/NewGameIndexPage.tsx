@@ -13,22 +13,19 @@ export const NewGameIndexPage: FC = () => {
 
     const type = "igrarnik";
     const { data } = useSWR(`/game-articles?filters[type][$eq]=${type}&populate=*&sort=createdAt:desc`, getGameArticlesFetcher);
-    const articleListNames = data?.map( data => data?.attributes.title);
+    const articleListNames = data?.map(data => data?.attributes.title);
     console.log(articleListNames)
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            // Trim the input value and check if it's not blank
-            const trimmedInput = inputValue.trim();
-            
-            // If the input is not empty, navigate to the page
-            if (trimmedInput !== "" && articleListNames?.includes(trimmedInput)) {
-                navigate(`/game/litero-game/game-zone/${trimmedInput}`);
-            } else {
-                // Optionally, show some feedback to the user that the input is empty
-                console.log("Input cannot be empty or false!");
-            }
+    const handleKeyDown = () => {
+        // Trim the input value and check if it's not blank
+        const trimmedInput = inputValue.trim();
+
+        // If the input is not empty, navigate to the page
+        if (trimmedInput !== "" && articleListNames?.includes(trimmedInput)) {
+            navigate(`/game/litero-game/game-zone/${trimmedInput}`);
+        } else {
+            // Optionally, show some feedback to the user that the input is empty
+            console.log("Input cannot be empty or false!");
         }
     };
 
@@ -43,8 +40,11 @@ export const NewGameIndexPage: FC = () => {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Unesi šifru i pritisni Enter"
+                    placeholder="Unesi šifru"
                 />
+                <div className="flex justify-center">
+                    <button className="mt-8 font-sobakaisti border-2 p-2 border-black" onClick={handleKeyDown}>Pronađi skrivenu stranicu</button>
+                </div>
             </div>
             <GameFooter />
         </div>
