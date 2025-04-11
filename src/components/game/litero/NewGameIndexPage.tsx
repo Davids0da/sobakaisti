@@ -68,7 +68,7 @@ export const NewGameIndexPage: FC = () => {
                         className="mt-8 font-sobakaisti border-2 p-2 border-black"
                         onClick={handleButtonClick}
                     >
-                        PLAY
+                        &#9658; PLAY
                     </button>
                 </div>
             </div>
